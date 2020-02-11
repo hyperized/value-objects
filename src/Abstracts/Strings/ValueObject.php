@@ -2,7 +2,7 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
-use Hyperized\ValueObjects\Strings\Interfaces\ValueObject as ValueObjectInterface;
+use Hyperized\ValueObjects\Interfaces\Strings\ValueObject as ValueObjectInterface;
 use Hyperized\ValueObjects\Traits\Strings\ValueObject as ValueObjectTrait;
 use InvalidArgumentException;
 

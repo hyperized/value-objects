@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Hyperized\ValueObjects\Strings\Interfaces;
+namespace Hyperized\ValueObjects\Interfaces\Strings;
 
 interface ValueObject
 {
