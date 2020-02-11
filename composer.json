@@ -1,0 +1,30 @@
+{
+    "name": "hyperized/value-objects",
+    "description": "A basic value objects collection",
+    "type": "library",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gerben Geijteman",
+            "email": "gerben@hyperized.net"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Hyperized\\ValueObjects\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hyperized\\ValueObjects\\Tests\\": "tests/"
+        }
+    }
+}
+
