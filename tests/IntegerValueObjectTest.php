@@ -25,7 +25,7 @@ class IntegerValueObjectTest extends TestCase
         };
     }
 
-    public function test__construct()
+    public function test__construct(): void
     {
         $this->assertInstanceOf(
             ValueObject::class,
@@ -33,7 +33,7 @@ class IntegerValueObjectTest extends TestCase
         );
     }
 
-    public function test_incorrect_unset_max__construct()
+    public function test_incorrect_unset_max__construct(): void
     {
         $this->expectException(InvalidArgumentException::class);
         new class(self::$value) extends ValueObject {
@@ -41,7 +41,7 @@ class IntegerValueObjectTest extends TestCase
         };
     }
 
-    public function test_incorrect_unset_min__construct()
+    public function test_incorrect_unset_min__construct(): void
     {
         $this->expectException(InvalidArgumentException::class);
         new class(self::$value) extends ValueObject {
@@ -49,7 +49,7 @@ class IntegerValueObjectTest extends TestCase
         };
     }
 
-    public function test_incorrect_max__construct()
+    public function test_incorrect_max__construct(): void
     {
         $this->expectException(InvalidArgumentException::class);
         new class(self::$value) extends ValueObject {
@@ -58,7 +58,7 @@ class IntegerValueObjectTest extends TestCase
         };
     }
 
-    public function test_incorrect_min__construct()
+    public function test_incorrect_min__construct(): void
     {
         $this->expectException(InvalidArgumentException::class);
         new class(self::$value) extends ValueObject {
@@ -67,7 +67,7 @@ class IntegerValueObjectTest extends TestCase
         };
     }
 
-    public function testGetValue()
+    public function testGetValue(): void
     {
         $this->assertSame(
             self::$value,

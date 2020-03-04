@@ -6,6 +6,7 @@ use Hyperized\ValueObjects\Interfaces\Integers\ValueObject as ValueObjectInterfa
 use Hyperized\ValueObjects\Traits\Integers\ValueObject as ValueObjectTrait;
 use InvalidArgumentException;
 
+
 class ValueObject implements ValueObjectInterface
 {
     use ValueObjectTrait;
@@ -15,12 +16,15 @@ class ValueObject implements ValueObjectInterface
 
     public function __construct(int $value)
     {
-        if (!isset($this->min)) {
+        $minIsSet = isset($this->min);
+        $maxIsSet = isset($this->max);
+
+        if (!$minIsSet) {
             throw new InvalidArgumentException(get_class($this) .
                 ' has not set $min value');
         }
 
-        if (!isset($this->max)) {
+        if (!$maxIsSet) {
             throw new InvalidArgumentException(get_class($this) .
                 ' has not set $max value');
         }

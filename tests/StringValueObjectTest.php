@@ -21,7 +21,7 @@ class StringValueObjectTest extends TestCase
         };
     }
 
-    public function test__construct()
+    public function test__construct(): void
     {
         $this->assertInstanceOf(
             ValueObject::class,
@@ -29,14 +29,14 @@ class StringValueObjectTest extends TestCase
         );
     }
 
-    public function test_incorrect__construct()
+    public function test_incorrect__construct(): void
     {
         $this->expectException(InvalidArgumentException::class);
         new class('') extends ValueObject {
         };
     }
 
-    public function testGetValue()
+    public function testGetValue(): void
     {
         $this->assertSame(
             self::$value,
