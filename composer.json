@@ -29,7 +29,7 @@
     },
     "scripts": {
         "phpunit": "vendor/phpunit/phpunit/phpunit --configuration phpunit.xml.dist",
-        "psalm": "vendor/bin/psalm --show-info=true",
+        "psalm": "vendor/bin/psalm",
         "test": [
             "@psalm",
             "@phpunit"

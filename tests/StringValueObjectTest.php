@@ -2,7 +2,7 @@
 
 namespace Hyperized\ValueObjects\Tests;
 
-use Hyperized\ValueObjects\Abstracts\Strings\ValueObject;
+use Hyperized\ValueObjects\Abstracts\Strings\String;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
@@ -13,7 +13,7 @@ class StringValueObjectTest extends TestCase
 
     public function setUp(): void
     {
-        $this->anonymousClassFromAbstract = new class(self::$value) extends ValueObject {
+        $this->anonymousClassFromAbstract = new class(self::$value) extends String {
             public function returnThis(): self
             {
                 return $this;
@@ -24,7 +24,7 @@ class StringValueObjectTest extends TestCase
     public function test__construct(): void
     {
         $this->assertInstanceOf(
-            ValueObject::class,
+            String::class,
             $this->anonymousClassFromAbstract->returnThis()
         );
     }
@@ -32,7 +32,7 @@ class StringValueObjectTest extends TestCase
     public function test_incorrect__construct(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        new class('') extends ValueObject {
+        new class('') extends String {
         };
     }
 

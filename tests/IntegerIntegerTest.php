@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests;
 
 
-use Hyperized\ValueObjects\Abstracts\Integers\ValueObject;
+use Hyperized\ValueObjects\Abstracts\Integers\Integer;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
@@ -14,7 +14,7 @@ class IntegerValueObjectTest extends TestCase
 
     public function setUp(): void
     {
-        $this->anonymousClassFromAbstract = new class(self::$value) extends ValueObject {
+        $this->anonymousClassFromAbstract = new class(self::$value) extends Integer {
             protected int $min = 100;
             protected int $max = 9999;
 
@@ -28,7 +28,7 @@ class IntegerValueObjectTest extends TestCase
     public function test__construct(): void
     {
         $this->assertInstanceOf(
-            ValueObject::class,
+            Integer::class,
             $this->anonymousClassFromAbstract->returnThis()
         );
     }
@@ -36,7 +36,7 @@ class IntegerValueObjectTest extends TestCase
     public function test_incorrect_unset_max__construct(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        new class(self::$value) extends ValueObject {
+        new class(self::$value) extends Integer {
             protected int $min = 1;
         };
     }
@@ -44,7 +44,7 @@ class IntegerValueObjectTest extends TestCase
     public function test_incorrect_unset_min__construct(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        new class(self::$value) extends ValueObject {
+        new class(self::$value) extends Integer {
             protected int $max = 1;
         };
     }
@@ -52,7 +52,7 @@ class IntegerValueObjectTest extends TestCase
     public function test_incorrect_max__construct(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        new class(self::$value) extends ValueObject {
+        new class(self::$value) extends Integer {
             protected int $min = 1;
             protected int $max = 10;
         };
@@ -61,7 +61,7 @@ class IntegerValueObjectTest extends TestCase
     public function test_incorrect_min__construct(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        new class(self::$value) extends ValueObject {
+        new class(self::$value) extends Integer {
             protected int $min = 1000;
             protected int $max = 10000;
         };

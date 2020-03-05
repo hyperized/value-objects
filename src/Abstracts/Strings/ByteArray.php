@@ -2,13 +2,11 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
-use Hyperized\ValueObjects\Interfaces\Strings\ValueObject as ValueObjectInterface;
-use Hyperized\ValueObjects\Traits\Strings\ValueObject as ValueObjectTrait;
 use InvalidArgumentException;
 
-class ValueObject implements ValueObjectInterface
+abstract class ByteArray implements \Hyperized\ValueObjects\Interfaces\Strings\ByteArray
 {
-    use ValueObjectTrait;
+    use \Hyperized\ValueObjects\Traits\Strings\ByteArray;
 
     public function __construct(string $value)
     {

@@ -2,7 +2,7 @@
 
 namespace Hyperized\ValueObjects\Interfaces\Strings;
 
-interface ValueObject
+interface ByteArray
 {
     public function __construct(string $value);
 

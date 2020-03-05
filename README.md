@@ -18,11 +18,11 @@ composer require hyperized/value-objects:dev-master
 ```php
 <?php declare(strict_types=1);
 
-use Hyperized\ValueObjects\Abstracts\Integers\ValueObject;
+use Hyperized\ValueObjects\Abstracts\Integers\Integer;
 
 include 'vendor/autoload.php';
 
-class MyObject extends ValueObject
+class MyObject extends Integer
 {
     protected int $min = 100;
     protected int $max = 9999;
@@ -40,11 +40,11 @@ new MyObject(1); // InvalidArgumentException: MyObject cannot be lower than "100
 ```php
 <?php declare(strict_types=1);
 
-use Hyperized\ValueObjects\Abstracts\Strings\ValueObject;
+use Hyperized\ValueObjects\Abstracts\Strings\String;
 
 include 'vendor/autoload.php';
 
-class MyObject extends ValueObject {}
+class MyObject extends String {}
 
 $myObject = new MyObject('Hello World!');
 

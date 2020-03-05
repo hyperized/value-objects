@@ -2,9 +2,9 @@
 
 namespace Hyperized\ValueObjects\Interfaces\Integers;
 
-interface ValueObject
+interface Integer
 {
-    public function __construct(int $value);
+    public static function fromInteger(int $value): self;
 
     public function getValue(): int;
 }

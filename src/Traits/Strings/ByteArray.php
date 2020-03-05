@@ -2,7 +2,7 @@
 
 namespace Hyperized\ValueObjects\Traits\Strings;
 
-trait ValueObject
+trait ByteArray
 {
     protected string $value;
 

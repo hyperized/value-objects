@@ -2,7 +2,7 @@
 
 namespace Hyperized\ValueObjects\Traits\Integers;
 
-trait ValueObject
+trait Integer
 {
     protected int $value;
 
