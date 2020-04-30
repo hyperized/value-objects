@@ -1,23 +1,26 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Hyperized\ValueObjects\Exceptions;
-
-use Hyperized\ValueObjects\Abstracts\Integers\Octal;
 
 class InvalidArgumentException extends \InvalidArgumentException
 {
     public static function negativeInteger(): InvalidArgumentException
     {
-        return new self('Integer is not larger than 0 (zero)');
+        return new self('Integer is smaller than 0 (zero)');
     }
 
     public static function positiveInteger(): InvalidArgumentException
     {
-        return new self('Integer is not smaller than 0 (zero)');
+        return new self('Integer is larger than 0 (zero)');
     }
 
     public static function notAnOctal(): InvalidArgumentException
     {
         return new self('Integer is not an octal value');
+    }
+
+    public static function outOfRange(int $value, int $minimum, int $maximum): InvalidArgumentException
+    {
+        return new self("Integer out of range (given: $value, range: $minimum-$maximum)");
     }
 }

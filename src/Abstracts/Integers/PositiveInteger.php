@@ -6,9 +6,9 @@ use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class PositiveInteger extends Integer
 {
-    protected function validate(): void
+    protected static function validate(int $value): void
     {
-        if ($this->value <= 0) {
+        if ($value <= 0) {
             throw InvalidArgumentException::negativeInteger();
         }
     }
