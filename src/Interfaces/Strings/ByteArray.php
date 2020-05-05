@@ -2,9 +2,8 @@
 
 namespace Hyperized\ValueObjects\Interfaces\Strings;
 
-interface ValueObject
+interface ByteArray
 {
-    public function __construct(string $value);
-
+    public static function fromString(string $value): self;
     public function getValue(): string;
 }
