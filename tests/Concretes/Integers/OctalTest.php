@@ -9,10 +9,18 @@ use function PHPUnit\Framework\assertSame;
 
 class OctalTest extends TestCase
 {
+    public function testCanConvert(): void
+    {
+        $octal = 511;
+        $noOctal = 888;
+
+        self::assertTrue(Octal::canConvertAndBack($octal));
+        self::assertFalse(Octal::canConvertAndBack($noOctal));
+    }
+
     public function testFromOctal(): void
     {
         assertSame(511, Octal::fromOctal(511)->getValue());
-
         assertSame(777, Octal::fromOctal(511)->asDecimal());
         assertSame('0777', Octal::fromOctal(511)->asDecimalString());
     }
@@ -20,7 +28,6 @@ class OctalTest extends TestCase
     public function testFromString(): void
     {
         assertSame(511, Octal::fromString('0777')->getValue());
-
         assertSame(777, Octal::fromString('0777')->asDecimal());
         assertSame('0777', Octal::fromString('0777')->asDecimalString());
     }
@@ -29,7 +36,6 @@ class OctalTest extends TestCase
     {
         assertSame(777, Octal::fromInteger(777)->getValue()); // Input is base 8
         assertSame(511, Octal::fromInteger(0777)->getValue()); // Input is base 8 notated
-
         assertSame(777, Octal::fromInteger(0777)->asDecimal());
         assertSame('0777', Octal::fromInteger(0777)->asDecimalString());
     }

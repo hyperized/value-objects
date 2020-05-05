@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "thecodingmachine/safe": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9",

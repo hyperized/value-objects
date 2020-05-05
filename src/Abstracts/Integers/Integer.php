@@ -3,9 +3,33 @@
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
 use Hyperized\ValueObjects\Interfaces\Integers\Integer as IntegerInterface;
-use Hyperized\ValueObjects\Traits\Integers\Integer as IntegerTrait;
 
 abstract class Integer implements IntegerInterface
 {
-    use IntegerTrait;
+    protected int $value;
+
+    protected function __construct(int $value)
+    {
+        static::validate($value);
+        $this->value = $value;
+    }
+
+    protected static function validate(int $value): void
+    {
+    }
+
+    public static function fromInteger(int $value): self
+    {
+        return new static($value);
+    }
+
+    public static function fromString(string $value): self
+    {
+        return new static((int)$value);
+    }
+
+    public function getValue(): int
+    {
+        return $this->value;
+    }
 }

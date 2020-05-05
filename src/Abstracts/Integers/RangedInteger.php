@@ -6,8 +6,8 @@ use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class RangedInteger extends Integer
 {
-    protected $minimum = PHP_INT_MIN;
-    protected $maximum = PHP_INT_MAX;
+    protected int $minimum = PHP_INT_MIN;
+    protected int $maximum = PHP_INT_MAX;
 
     public static function fromRange(int $value, int $minimum, int $maximum): RangedInteger
     {
@@ -15,7 +15,8 @@ abstract class RangedInteger extends Integer
         return new static($value);
     }
 
-    protected static function validateRange(int $value, int $minimum, int $maximum): void {
+    protected static function validateRange(int $value, int $minimum, int $maximum): void
+    {
         if ($value < $minimum || $value > $maximum) {
             throw InvalidArgumentException::outOfRange($value, $minimum, $maximum);
         }
