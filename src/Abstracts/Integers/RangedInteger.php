@@ -9,7 +9,7 @@ abstract class RangedInteger extends Integer
     protected int $minimum = PHP_INT_MIN;
     protected int $maximum = PHP_INT_MAX;
 
-    public static function fromRange(int $value, int $minimum, int $maximum): RangedInteger
+    public static function fromRange(int $value, int $minimum, int $maximum): self
     {
         self::validateRange($value, $minimum, $maximum);
         return new static($value);
