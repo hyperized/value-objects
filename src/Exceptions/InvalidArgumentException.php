@@ -23,4 +23,9 @@ class InvalidArgumentException extends \InvalidArgumentException
     {
         return new self("Integer out of range (given: $value, range: $minimum-$maximum)");
     }
+
+    public static function emptyString(): InvalidArgumentException
+    {
+        return new self('Byte array cannot be empty');
+    }
 }
