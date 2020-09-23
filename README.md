@@ -4,11 +4,8 @@ A basic PHP value objects collection.
 
 ## Install
 
-_Notice_: Only dev-master available for now.
-Use at own risk.
-
 ```bash
-composer require hyperized/value-objects:dev-master
+composer require hyperized/value-objects
 ```
 
 ## Examples
