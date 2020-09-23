@@ -8,7 +8,7 @@ abstract class Integer implements IntegerInterface
 {
     protected int $value;
 
-    protected function __construct(int $value)
+    final protected function __construct(int $value)
     {
         static::validate($value);
         $this->value = $value;

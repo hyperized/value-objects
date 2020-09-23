@@ -13,7 +13,7 @@ abstract class ByteArray implements \Hyperized\ValueObjects\Interfaces\Strings\B
         return $this->value;
     }
 
-    protected function __construct(string $value)
+    final protected function __construct(string $value)
     {
         self::validate($value);
         $this->value = $value;
