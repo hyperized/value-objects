@@ -28,4 +28,9 @@ class InvalidArgumentException extends \InvalidArgumentException
     {
         return new self('Byte array cannot be empty');
     }
+
+    public static function nonEmptyString(): InvalidArgumentException
+    {
+        return new self('Byte array is not empty');
+    }
 }

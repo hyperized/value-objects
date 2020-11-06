@@ -57,6 +57,11 @@ $myObject = MyObject::fromString('Hello world!');
 var_dump($myObject->getValue()); // string('Hello world');
 ```
 
+Other types that are offered:
+
+* EmptyByteArray.
+    * Validates value equals '' (empty string)
+
 ## Licence
 
 MIT
