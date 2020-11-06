@@ -2,8 +2,8 @@
 
 namespace Hyperized\ValueObjects\Concretes\Integers;
 
-use Hyperized\ValueObjects\Abstracts\Integers\PositiveInteger as PositiveIntegerAbstract;
+use Hyperized\ValueObjects\Abstracts\Integers\AbstractPositiveInteger;
 
-class PositiveInteger extends PositiveIntegerAbstract
+class PositiveInteger extends AbstractPositiveInteger
 {
 }

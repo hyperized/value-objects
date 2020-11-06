@@ -2,8 +2,8 @@
 
 namespace Hyperized\ValueObjects\Concretes\Integers;
 
-use Hyperized\ValueObjects\Abstracts\Integers\Integer as IntegerAbstract;
+use Hyperized\ValueObjects\Abstracts\Integers\AbstractInteger;
 
-class Integer extends IntegerAbstract
+class Integer extends AbstractInteger
 {
 }

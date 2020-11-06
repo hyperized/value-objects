@@ -2,8 +2,9 @@
 
 namespace Hyperized\ValueObjects\Interfaces\Strings;
 
-interface ByteArray
+interface ByteArrayInterface
 {
     public static function fromString(string $value): self;
+
     public function getValue(): string;
 }

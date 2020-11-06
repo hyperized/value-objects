@@ -2,8 +2,8 @@
 
 namespace Hyperized\ValueObjects\Concretes\Integers;
 
-use Hyperized\ValueObjects\Abstracts\Integers\Octal as OctalAbstract;
+use Hyperized\ValueObjects\Abstracts\Integers\AbstractOctal;
 
-class Octal extends OctalAbstract
+class Octal extends AbstractOctal
 {
 }

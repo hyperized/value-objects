@@ -4,7 +4,7 @@ namespace Hyperized\ValueObjects\Abstracts\Integers;
 
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
-abstract class NegativeInteger extends Integer
+abstract class AbstractNegativeInteger extends AbstractInteger
 {
     protected static function validate(int $value): void
     {

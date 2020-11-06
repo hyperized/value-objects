@@ -5,7 +5,7 @@ namespace Hyperized\ValueObjects\Abstracts\Integers;
 use Exception;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
-abstract class Octal extends Integer
+abstract class AbstractOctal extends AbstractInteger
 {
     protected static string $pattern = '/0[0-7]+(_[0-7]+)*/';
 

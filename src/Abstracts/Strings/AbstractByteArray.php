@@ -3,15 +3,11 @@
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Interfaces\Strings\ByteArrayInterface;
 
-abstract class ByteArray implements \Hyperized\ValueObjects\Interfaces\Strings\ByteArray
+abstract class AbstractByteArray implements ByteArrayInterface
 {
     protected string $value;
-
-    public function getValue(): string
-    {
-        return $this->value;
-    }
 
     final protected function __construct(string $value)
     {
@@ -19,15 +15,20 @@ abstract class ByteArray implements \Hyperized\ValueObjects\Interfaces\Strings\B
         $this->value = $value;
     }
 
-    public static function fromString(string $value): self
-    {
-        return new static($value);
-    }
-
     protected static function validate(string $value): void
     {
         if ('' === $value) {
             throw InvalidArgumentException::emptyString();
         }
+    }
+
+    public static function fromString(string $value): self
+    {
+        return new static($value);
+    }
+
+    public function getValue(): string
+    {
+        return $this->value;
     }
 }

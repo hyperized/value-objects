@@ -2,8 +2,8 @@
 
 namespace Hyperized\ValueObjects\Concretes\Integers;
 
-use Hyperized\ValueObjects\Abstracts\Integers\NegativeInteger as NegativeIntegerAbstract;
+use Hyperized\ValueObjects\Abstracts\Integers\AbstractNegativeInteger;
 
-class NegativeInteger extends NegativeIntegerAbstract
+class NegativeInteger extends AbstractNegativeInteger
 {
 }

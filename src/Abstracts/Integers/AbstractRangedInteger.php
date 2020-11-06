@@ -4,7 +4,7 @@ namespace Hyperized\ValueObjects\Abstracts\Integers;
 
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
-abstract class RangedInteger extends Integer
+abstract class AbstractRangedInteger extends AbstractInteger
 {
     protected int $minimum = PHP_INT_MIN;
     protected int $maximum = PHP_INT_MAX;

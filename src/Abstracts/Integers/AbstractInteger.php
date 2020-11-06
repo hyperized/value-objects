@@ -2,9 +2,9 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
-use Hyperized\ValueObjects\Interfaces\Integers\Integer as IntegerInterface;
+use Hyperized\ValueObjects\Interfaces\Integers\IntegerInterface;
 
-abstract class Integer implements IntegerInterface
+abstract class AbstractInteger implements IntegerInterface
 {
     protected int $value;
 

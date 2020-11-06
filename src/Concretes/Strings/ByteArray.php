@@ -2,8 +2,8 @@
 
 namespace Hyperized\ValueObjects\Concretes\Strings;
 
-use Hyperized\ValueObjects\Abstracts\Strings\ByteArray as ByteArrayAbstract;
+use Hyperized\ValueObjects\Abstracts\Strings\AbstractByteArray;
 
-class ByteArray extends ByteArrayAbstract
+class ByteArray extends AbstractByteArray
 {
 }

@@ -15,12 +15,12 @@ composer require hyperized/value-objects
 ```php
 <?php declare(strict_types=1);
 
-use Hyperized\ValueObjects\Abstracts\Integers\Integer;
+use Hyperized\ValueObjects\Abstracts\Integers\AbstractInteger;
 
 include 'vendor/autoload.php';
 
 // Implement concrete class for as value object
-class MyObject extends Integer {}
+class MyObject extends AbstractInteger {}
 
 $myObject = MyObject::fromInteger(1337);
 
@@ -47,11 +47,11 @@ Strings are called ByteArrays due to string being a reserved word in PHP.
 ```php
 <?php declare(strict_types=1);
 
-use Hyperized\ValueObjects\Abstracts\Strings\ByteArray;
+use Hyperized\ValueObjects\Abstracts\Strings\AbstractByteArray;
 
 include 'vendor/autoload.php';
 
-class MyObject extends ByteArray {}
+class MyObject extends AbstractByteArray {}
 
 $myObject = MyObject::fromString('Hello world!');
 var_dump($myObject->getValue()); // string('Hello world');
