@@ -61,6 +61,8 @@ Other types that are offered:
 
 * EmptyByteArray.
     * Validates value equals '' (empty string)
+* NonEmptyByteArray.
+    * Validates value does not equal '' (empty string)
 
 ## Licence
 

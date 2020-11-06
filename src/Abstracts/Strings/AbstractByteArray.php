@@ -17,9 +17,6 @@ abstract class AbstractByteArray implements ByteArrayInterface
 
     protected static function validate(string $value): void
     {
-        if ('' === $value) {
-            throw InvalidArgumentException::emptyString();
-        }
     }
 
     public static function fromString(string $value): self

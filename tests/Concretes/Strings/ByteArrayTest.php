@@ -16,7 +16,6 @@ class ByteArrayTest extends TestCase
 
     public function testEmptyString(): void
     {
-        $this->expectException(InvalidArgumentException::class);
-        ByteArray::fromString('');
+        assertSame('', ByteArray::fromString('')->getValue());
     }
 }
