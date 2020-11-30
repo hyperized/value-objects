@@ -31,7 +31,7 @@ jobs:
           coverage: xdebug
       - name: Composer update
         run: |
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
       - name: Composer ${{ matrix.test }}
         run: |
           composer ${{ matrix.test }}
