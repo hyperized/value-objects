@@ -1,0 +1,37 @@
+name: Execute tests
+
+on:
+  - push
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        php:
+          - 7.4
+          - 8.0
+        dependency-version:
+          - prefer-lowest
+          - prefer-stable
+        os:
+          - ubuntu-20.04
+        test:
+          - phpunit
+          - psalm
+    name: ${{ matrix.test }} on PHP${{ matrix.php }} with ${{ matrix.dependency-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: xdebug
+      - name: Composer update
+        run: |
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+      - name: Composer ${{ matrix.test }}
+        run: |
+          composer ${{ matrix.test }}
