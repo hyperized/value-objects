@@ -6,10 +6,7 @@ use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractRangedInteger extends AbstractInteger
 {
-    protected int $minimum = PHP_INT_MIN;
-    protected int $maximum = PHP_INT_MAX;
-
-    public static function fromRange(int $value, int $minimum, int $maximum): self
+    public static function fromRange(int $value, int $minimum = PHP_INT_MIN, int $maximum = PHP_INT_MAX): self
     {
         self::validateRange($value, $minimum, $maximum);
         return new static($value);
