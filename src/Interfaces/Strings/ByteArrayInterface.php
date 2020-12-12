@@ -4,7 +4,7 @@ namespace Hyperized\ValueObjects\Interfaces\Strings;
 
 interface ByteArrayInterface
 {
-    public static function fromString(string $value): self;
+    public static function fromString(string $value): ByteArrayInterface;
 
     public function getValue(): string;
 }
