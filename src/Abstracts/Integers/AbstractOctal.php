@@ -4,12 +4,13 @@ namespace Hyperized\ValueObjects\Abstracts\Integers;
 
 use Exception;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Interfaces\Integers\IntegerInterface;
 
 abstract class AbstractOctal extends AbstractInteger
 {
     protected static string $pattern = '/0[0-7]+(_[0-7]+)*/';
 
-    public static function fromOctal(int $value): self
+    public static function fromOctal(int $value): IntegerInterface
     {
         static::validateOctal($value);
         return new static($value);
@@ -32,7 +33,7 @@ abstract class AbstractOctal extends AbstractInteger
         return (int)decoct((int)$octal) === $value;
     }
 
-    public static function fromInteger(int $value): self
+    public static function fromInteger(int $value): IntegerInterface
     {
         // PHP casts $value to octal in integer when it detects base 8.
         static::validateOctalInteger($value);

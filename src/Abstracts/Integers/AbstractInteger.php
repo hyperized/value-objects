@@ -18,12 +18,12 @@ abstract class AbstractInteger implements IntegerInterface
     {
     }
 
-    public static function fromInteger(int $value): self
+    public static function fromInteger(int $value): IntegerInterface
     {
         return new static($value);
     }
 
-    public static function fromString(string $value): self
+    public static function fromString(string $value): IntegerInterface
     {
         return new static((int)$value);
     }

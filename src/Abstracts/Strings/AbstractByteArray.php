@@ -2,7 +2,6 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 use Hyperized\ValueObjects\Interfaces\Strings\ByteArrayInterface;
 
 abstract class AbstractByteArray implements ByteArrayInterface
@@ -19,7 +18,7 @@ abstract class AbstractByteArray implements ByteArrayInterface
     {
     }
 
-    public static function fromString(string $value): self
+    public static function fromString(string $value): ByteArrayInterface
     {
         return new static($value);
     }
