@@ -18,7 +18,7 @@ abstract class AbstractByteArray implements ByteArrayInterface
     {
     }
 
-    public static function fromString(string $value): ByteArrayInterface
+    public static function fromString(string $value): self
     {
         return new static($value);
     }
