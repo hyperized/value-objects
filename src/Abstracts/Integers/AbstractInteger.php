@@ -16,6 +16,7 @@ abstract class AbstractInteger implements IntegerInterface
 
     protected static function validate(int $value): void
     {
+        // No validation required beyond type
     }
 
     public static function fromInteger(int $value): self

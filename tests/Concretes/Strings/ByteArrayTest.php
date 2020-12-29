@@ -3,7 +3,6 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\ByteArray;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertSame;
 

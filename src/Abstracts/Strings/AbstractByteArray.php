@@ -16,6 +16,7 @@ abstract class AbstractByteArray implements ByteArrayInterface
 
     protected static function validate(string $value): void
     {
+        // No validation required beyond type
     }
 
     public static function fromString(string $value): self
