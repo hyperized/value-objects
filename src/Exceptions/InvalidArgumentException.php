@@ -33,4 +33,14 @@ class InvalidArgumentException extends \InvalidArgumentException
     {
         return new self('Byte array is not empty');
     }
+
+    public static function notACommaSeperatedString(): InvalidArgumentException
+    {
+        return new self('String is not comma seperated');
+    }
+
+    public static function notAList(): InvalidArgumentException
+    {
+        return new self('Array is not a list');
+    }
 }
