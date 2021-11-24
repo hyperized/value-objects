@@ -66,7 +66,7 @@ abstract class AbstractOctal extends AbstractInteger
 
     protected static function isOctalString(string $value): bool
     {
-        return preg_match(static::$pattern, $value) ? true : false;
+        return (bool)preg_match(static::$pattern, $value);
     }
 
     public function getValue(): int
