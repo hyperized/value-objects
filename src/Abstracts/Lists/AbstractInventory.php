@@ -4,6 +4,7 @@ namespace Hyperized\ValueObjects\Abstracts\Lists;
 
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 use Hyperized\ValueObjects\Interfaces\Lists\ListInterface;
+use function explode;
 
 /**
  * Lists is a reserved name, inventory sort of covers it.
@@ -32,7 +33,7 @@ class AbstractInventory implements ListInterface
 
     public static function fromCommaSeperatedString(string $value): self
     {
-        if (!str_contains($value, ',')) {
+        if (!self::stringContainsComma($value)) {
             throw InvalidArgumentException::notACommaSeperatedString();
         }
         return new static(explode(',', $value));
@@ -46,5 +47,10 @@ class AbstractInventory implements ListInterface
     public function contains(string $value): bool
     {
         return in_array($value, $this->value);
+    }
+
+    private static function stringContainsComma(string $haystack): bool
+    {
+        return mb_strpos($haystack, ',') !== false;
     }
 }
