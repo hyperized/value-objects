@@ -9,13 +9,12 @@ jobs:
       fail-fast: false
       matrix:
         php:
-          - 7.4
-          - 8.0
+          - 8.1
         dependency-version:
           - prefer-lowest
           - prefer-stable
         os:
-          - ubuntu-20.04
+          - ubuntu-22.04
         test:
           - phpunit
           - psalm
