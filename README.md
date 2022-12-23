@@ -1,4 +1,6 @@
 # Value Objects
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhyperized%2Fvalue-objects.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhyperized%2Fvalue-objects?ref=badge_shield)
+
 
 A basic PHP value objects collection.
 
@@ -67,6 +69,9 @@ Other types that are offered:
 ## Licence
 
 MIT
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fhyperized%2Fvalue-objects.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fhyperized%2Fvalue-objects?ref=badge_large)
 
 ## Author
 
