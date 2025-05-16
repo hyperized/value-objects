@@ -1,10 +1,9 @@
-<?php declare(strict_types=1);
+<?php declare( strict_types=1 );
 
 namespace Hyperized\ValueObjects\Interfaces\Strings;
 
-interface ByteArrayInterface
-{
-    public static function fromString(string $value): ByteArrayInterface;
+interface ByteArrayInterface {
+	public static function fromString( string $value ): ByteArrayInterface;
 
-    public function getValue(): string;
+	public function getValue(): string;
 }

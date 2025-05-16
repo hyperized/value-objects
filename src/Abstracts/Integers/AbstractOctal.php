@@ -1,86 +1,77 @@
-<?php declare(strict_types=1);
+<?php declare( strict_types=1 );
 
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
 use Exception;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
-abstract class AbstractOctal extends AbstractInteger
-{
-    protected static string $pattern = '/0[0-7]+(_[0-7]+)*/';
+abstract class AbstractOctal extends AbstractInteger {
+	protected static string $pattern = '/0[0-7]+(_[0-7]+)*/';
 
-    public static function fromOctal(int $value): self
-    {
-        static::validateOctal($value);
-        return new static($value);
-    }
+	public static function fromOctal( int $value ): self {
+		static::validateOctal( $value );
 
-    protected static function validateOctal(int $value): void
-    {
-        if (!static::canConvertAndBack($value)) {
-            throw InvalidArgumentException::notAnOctal();
-        }
-    }
+		return new static( $value );
+	}
 
-    public static function canConvertAndBack(int $value): bool
-    {
-        try {
-            $octal = octdec((string)$value);
-        } catch (Exception $exception) {
-            return false;
-        }
-        return (int)decoct((int)$octal) === $value;
-    }
+	protected static function validateOctal( int $value ): void {
+		if ( ! static::canConvertAndBack( $value ) ) {
+			throw InvalidArgumentException::notAnOctal();
+		}
+	}
 
-    public static function fromInteger(int $value): self
-    {
-        // PHP casts $value to octal in integer when it detects base 8.
-        static::validateOctalInteger($value);
-        return new static($value);
-    }
+	public static function canConvertAndBack( int $value ): bool {
+		try {
+			$octal = octdec( (string) $value );
+		} catch ( Exception $exception ) {
+			return false;
+		}
 
-    protected static function validateOctalInteger(int $value): void
-    {
-        if (static::containsInvalidOctalNumbers($value) || !static::canConvertAndBack($value)) {
-            throw InvalidArgumentException::notAnOctal();
-        }
-    }
+		return (int) decoct( (int) $octal ) === $value;
+	}
 
-    protected static function containsInvalidOctalNumbers(int $value): bool
-    {
-        return in_array($value, [8, 9], true);
-    }
+	public static function fromInteger( int $value ): self {
+		// PHP casts $value to octal in integer when it detects base 8.
+		static::validateOctalInteger( $value );
 
-    public static function fromString(string $value): self
-    {
-        static::validateOctalString($value);
-        return new static(intval($value, 8));
-    }
+		return new static( $value );
+	}
 
-    protected static function validateOctalString(string $value): void
-    {
-        if (!static::isOctalString($value)) {
-            throw InvalidArgumentException::notAnOctal();
-        }
-    }
+	protected static function validateOctalInteger( int $value ): void {
+		if ( static::containsInvalidOctalNumbers( $value ) || ! static::canConvertAndBack( $value ) ) {
+			throw InvalidArgumentException::notAnOctal();
+		}
+	}
 
-    protected static function isOctalString(string $value): bool
-    {
-        return (bool)preg_match(static::$pattern, $value);
-    }
+	protected static function containsInvalidOctalNumbers( int $value ): bool {
+		return in_array( $value, [ 8, 9 ], true );
+	}
 
-    public function getValue(): int
-    {
-        return $this->value;
-    }
+	public static function fromString( string $value ): self {
+		static::validateOctalString( $value );
 
-    public function asDecimal(): int
-    {
-        return (int)decoct($this->value);
-    }
+		return new static( intval( $value, 8 ) );
+	}
 
-    public function asDecimalString(): string
-    {
-        return '0' . decoct($this->value);
-    }
+	protected static function validateOctalString( string $value ): void {
+		if ( ! static::isOctalString( $value ) ) {
+			throw InvalidArgumentException::notAnOctal();
+		}
+	}
+
+	protected static function isOctalString( string $value ): bool {
+		return (bool) preg_match( static::$pattern, $value );
+	}
+
+	public function getValue(): int {
+		return $this->value;
+	}
+
+	public function asDecimal(): int {
+		return (int) decoct( $this->value );
+	}
+
+	public function asDecimalString(): string {
+		return '0' . decoct( $this->value );
+	}
 }
