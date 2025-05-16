@@ -1,9 +1,8 @@
-<?php declare(strict_types=1);
+<?php declare( strict_types=1 );
 
 namespace Hyperized\ValueObjects\Concretes\Integers;
 
 use Hyperized\ValueObjects\Abstracts\Integers\AbstractInteger;
 
-class Integer extends AbstractInteger
-{
+class Integer extends AbstractInteger {
 }

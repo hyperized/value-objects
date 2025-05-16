@@ -2,3 +2,4 @@
 /clover.xml
 /vendor/
 /infection.log
+/.phpunit.cache
