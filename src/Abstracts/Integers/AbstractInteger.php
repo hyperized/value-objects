@@ -2,8 +2,6 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
-use Hyperized\ValueObjects\Interfaces\Integers\IntegerInterface;
-
 abstract class AbstractInteger implements IntegerInterface {
 	protected int $value;
 
@@ -16,11 +14,11 @@ abstract class AbstractInteger implements IntegerInterface {
 		// No validation required beyond type
 	}
 
-	public static function fromInteger( int $value ): self {
+	public static function fromInteger( int $value ): IntegerInterface {
 		return new static( $value );
 	}
 
-	public static function fromString( string $value ): self {
+	public static function fromString( string $value ): IntegerInterface {
 		return new static( (int) $value );
 	}
 

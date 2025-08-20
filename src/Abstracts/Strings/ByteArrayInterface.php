@@ -1,6 +1,6 @@
 <?php declare( strict_types=1 );
 
-namespace Hyperized\ValueObjects\Interfaces\Strings;
+namespace Hyperized\ValueObjects\Abstracts\Strings;
 
 interface ByteArrayInterface {
 	public static function fromString( string $value ): ByteArrayInterface;

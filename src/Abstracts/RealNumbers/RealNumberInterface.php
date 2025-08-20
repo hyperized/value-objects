@@ -1,6 +1,6 @@
 <?php declare( strict_types=1 );
 
-namespace Hyperized\ValueObjects\Interfaces\RealNumbers;
+namespace Hyperized\ValueObjects\Abstracts\RealNumbers;
 
 interface RealNumberInterface {
 	public static function fromFloat( float $value ): RealNumberInterface;

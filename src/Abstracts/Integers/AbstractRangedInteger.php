@@ -3,7 +3,6 @@
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
-use Hyperized\ValueObjects\Interfaces\Integers\IntegerInterface;
 
 abstract class AbstractRangedInteger extends AbstractInteger {
 	public static function fromRange( int $value, int $minimum = PHP_INT_MIN, int $maximum = PHP_INT_MAX ): IntegerInterface {

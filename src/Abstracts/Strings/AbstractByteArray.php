@@ -2,8 +2,6 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
-use Hyperized\ValueObjects\Interfaces\Strings\ByteArrayInterface;
-
 abstract class AbstractByteArray implements ByteArrayInterface {
 	protected string $value;
 
@@ -16,7 +14,7 @@ abstract class AbstractByteArray implements ByteArrayInterface {
 		// No validation required beyond type
 	}
 
-	public static function fromString( string $value ): self {
+	public static function fromString( string $value ): ByteArrayInterface {
 		return new static( $value );
 	}
 

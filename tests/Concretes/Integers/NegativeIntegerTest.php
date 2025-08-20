@@ -14,9 +14,20 @@ class NegativeIntegerTest extends TestCase
         assertSame(-1, NegativeInteger::fromString('-1')->getValue());
     }
 
-    public function testFromStringPositive(): void
+	public function testFromInteger(): void
+	{
+		assertSame(-1, NegativeInteger::fromInteger(-1)->getValue());;
+	}
+
+    public function testFromIntegerPositive(): void
     {
         $this->expectException(InvalidArgumentException::class);
         NegativeInteger::fromInteger(1);
     }
+
+	public function testFromStringPositive(): void
+	{
+		$this->expectException(InvalidArgumentException::class);
+		NegativeInteger::fromString('1');
+	}
 }

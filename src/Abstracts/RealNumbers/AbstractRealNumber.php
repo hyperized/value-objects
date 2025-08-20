@@ -2,8 +2,6 @@
 
 namespace Hyperized\ValueObjects\Abstracts\RealNumbers;
 
-use Hyperized\ValueObjects\Interfaces\RealNumbers\RealNumberInterface;
-
 class AbstractRealNumber implements RealNumberInterface {
 	protected float $value;
 
