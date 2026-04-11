@@ -22,10 +22,10 @@ abstract readonly class AbstractConstrainedList implements ConstrainedListInterf
 	 */
 	#[\Override]
 	public static function fromArray( array $values, array $allowedValues ): ConstrainedListInterface {
-		foreach ( $values as $value ) {
-			if ( ! in_array( $value, $allowedValues, true ) ) {
-				throw ListException::valueNotAllowed( $value, $allowedValues );
-			}
+		$disallowed = array_find( $values, static fn( string $v ): bool => ! in_array( $v, $allowedValues, true ) );
+
+		if ( $disallowed !== null ) {
+			throw ListException::valueNotAllowed( $disallowed, $allowedValues );
 		}
 
 		return new static( $values );
