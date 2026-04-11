@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
 use Hyperized\ValueObjects\Contracts\Integers\HexadecimalInterface;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\IntegerException;
 
 abstract class AbstractHexadecimal implements HexadecimalInterface {
 	protected static string $pattern = '/^(0x)?[0-9a-f]+$/i';
@@ -16,7 +16,7 @@ abstract class AbstractHexadecimal implements HexadecimalInterface {
 
 	public static function fromString( string $value ): HexadecimalInterface {
 		if ( ! preg_match( static::$pattern, $value ) ) {
-			throw InvalidArgumentException::invalidHexadecimal( $value );
+			throw IntegerException::invalidHexadecimal( $value );
 		}
 
 		return new static( (int) hexdec( $value ) );

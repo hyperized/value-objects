@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\Url;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 
 class UrlTest extends TestCase {
@@ -29,7 +29,7 @@ class UrlTest extends TestCase {
 	}
 
 	public function testInvalidUrl(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Url::fromString( 'not a url' );
 	}
 

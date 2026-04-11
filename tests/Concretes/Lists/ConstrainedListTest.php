@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Lists;
 
 use Hyperized\ValueObjects\Concretes\Lists\ConstrainedList;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\ListException;
 use PHPUnit\Framework\TestCase;
 
 class ConstrainedListTest extends TestCase {
@@ -19,7 +19,7 @@ class ConstrainedListTest extends TestCase {
 	}
 
 	public function testDisallowedValue(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ListException::class );
 		ConstrainedList::fromArray( [ 'a', 'x' ], [ 'a', 'b', 'c' ] );
 	}
 }

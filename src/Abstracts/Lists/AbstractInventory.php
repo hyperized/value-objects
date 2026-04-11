@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Lists;
 
 use Hyperized\ValueObjects\Contracts\Lists\ListInterface;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\ListException;
 use function explode;
 
 /**
@@ -30,7 +30,7 @@ abstract class AbstractInventory implements ListInterface {
 
 	public static function fromCommaSeparatedString( string $value ): ListInterface {
 		if ( ! self::stringContainsComma( $value ) ) {
-			throw InvalidArgumentException::notACommaSeparatedString();
+			throw ListException::notACommaSeparatedString();
 		}
 
 		return new static( explode( ',', $value ) );

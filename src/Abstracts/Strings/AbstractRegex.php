@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
 use Hyperized\ValueObjects\Contracts\Strings\RegexInterface;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 
 abstract class AbstractRegex implements RegexInterface {
 	protected readonly string $value;
@@ -15,7 +15,7 @@ abstract class AbstractRegex implements RegexInterface {
 
 	protected static function validate( string $value ): void {
 		if ( @preg_match( $value, '' ) === false ) {
-			throw InvalidArgumentException::invalidRegex( $value );
+			throw StringException::invalidRegex( $value );
 		}
 	}
 

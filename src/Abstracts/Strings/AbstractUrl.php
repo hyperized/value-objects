@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
 use Hyperized\ValueObjects\Contracts\Strings\UrlInterface;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 
 abstract class AbstractUrl implements UrlInterface {
 	protected readonly string $value;
@@ -15,7 +15,7 @@ abstract class AbstractUrl implements UrlInterface {
 
 	protected static function validate( string $value ): void {
 		if ( filter_var( $value, FILTER_VALIDATE_URL ) === false ) {
-			throw InvalidArgumentException::invalidUrl( $value );
+			throw StringException::invalidUrl( $value );
 		}
 	}
 

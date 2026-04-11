@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Lists;
 
 use Hyperized\ValueObjects\Contracts\Lists\ConstrainedListInterface;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\ListException;
 
 abstract class AbstractConstrainedList implements ConstrainedListInterface {
 	/** @var array<string> */
@@ -23,7 +23,7 @@ abstract class AbstractConstrainedList implements ConstrainedListInterface {
 	public static function fromArray( array $values, array $allowedValues ): ConstrainedListInterface {
 		foreach ( $values as $value ) {
 			if ( ! in_array( $value, $allowedValues, true ) ) {
-				throw InvalidArgumentException::valueNotAllowed( $value, $allowedValues );
+				throw ListException::valueNotAllowed( $value, $allowedValues );
 			}
 		}
 

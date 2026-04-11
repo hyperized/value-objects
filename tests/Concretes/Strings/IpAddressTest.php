@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\IpAddress;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 
 class IpAddressTest extends TestCase {
@@ -30,12 +30,12 @@ class IpAddressTest extends TestCase {
 	}
 
 	public function testInvalidIpAddress(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		IpAddress::fromString( '999.999.999.999' );
 	}
 
 	public function testInvalidString(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		IpAddress::fromString( 'not-an-ip' );
 	}
 }

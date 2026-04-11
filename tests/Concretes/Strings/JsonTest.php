@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\Json;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 
 class JsonTest extends TestCase {
@@ -23,12 +23,12 @@ class JsonTest extends TestCase {
 	}
 
 	public function testInvalidJson(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Json::fromString( '{invalid}' );
 	}
 
 	public function testEmptyStringJson(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Json::fromString( '' );
 	}
 }

@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Integers;
 
 use Hyperized\ValueObjects\Concretes\Integers\NonNegativeInteger;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\IntegerException;
 use PHPUnit\Framework\TestCase;
 
 class NonNegativeIntegerTest extends TestCase {
@@ -20,12 +20,12 @@ class NonNegativeIntegerTest extends TestCase {
 	}
 
 	public function testNegativeInteger(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( IntegerException::class );
 		NonNegativeInteger::fromInteger( -1 );
 	}
 
 	public function testNegativeFromString(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( IntegerException::class );
 		NonNegativeInteger::fromString( '-5' );
 	}
 }

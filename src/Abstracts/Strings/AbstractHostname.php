@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
 use Hyperized\ValueObjects\Contracts\Strings\HostnameInterface;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 
 abstract class AbstractHostname implements HostnameInterface {
 	protected static string $pattern = '/^(?!-)[a-z0-9-]{1,63}(?<!-)(\.[a-z0-9-]{1,63})*$/i';
@@ -17,11 +17,11 @@ abstract class AbstractHostname implements HostnameInterface {
 
 	protected static function validate( string $value ): void {
 		if ( strlen( $value ) > 253 ) {
-			throw InvalidArgumentException::invalidHostname( $value );
+			throw StringException::invalidHostname( $value );
 		}
 
 		if ( ! preg_match( static::$pattern, $value ) ) {
-			throw InvalidArgumentException::invalidHostname( $value );
+			throw StringException::invalidHostname( $value );
 		}
 	}
 

@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
 use Hyperized\ValueObjects\Contracts\Strings\UriInterface;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 
 abstract class AbstractUri implements UriInterface {
 	protected readonly string $value;
@@ -15,11 +15,11 @@ abstract class AbstractUri implements UriInterface {
 
 	protected static function validate( string $value ): void {
 		if ( parse_url( $value ) === false ) {
-			throw InvalidArgumentException::invalidUri( $value );
+			throw StringException::invalidUri( $value );
 		}
 
 		if ( parse_url( $value, PHP_URL_SCHEME ) === null ) {
-			throw InvalidArgumentException::invalidUri( $value );
+			throw StringException::invalidUri( $value );
 		}
 	}
 

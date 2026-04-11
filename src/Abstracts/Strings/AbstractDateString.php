@@ -4,7 +4,7 @@ namespace Hyperized\ValueObjects\Abstracts\Strings;
 
 use DateTimeImmutable;
 use Hyperized\ValueObjects\Contracts\Strings\DateStringInterface;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 
 abstract class AbstractDateString implements DateStringInterface {
 	protected readonly string $value;
@@ -26,7 +26,7 @@ abstract class AbstractDateString implements DateStringInterface {
 		}
 
 		if ( $date === false ) {
-			throw InvalidArgumentException::invalidDateString( $value );
+			throw StringException::invalidDateString( $value );
 		}
 	}
 

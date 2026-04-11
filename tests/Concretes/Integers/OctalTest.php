@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Integers;
 
 use Hyperized\ValueObjects\Concretes\Integers\Octal;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\IntegerException;
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertSame;
 
@@ -42,19 +42,19 @@ class OctalTest extends TestCase
 
     public function testInvalidOctal(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(IntegerException::class);
         Octal::fromOctal(0511);
     }
 
     public function testInvalidInteger(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(IntegerException::class);
         Octal::fromInteger(888);
     }
 
     public function testInvalidIntegerContaining8(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(IntegerException::class);
         Octal::fromInteger(18);
     }
 
@@ -65,19 +65,19 @@ class OctalTest extends TestCase
 
     public function testInvalidIntegerWithOnlyDigit9(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(IntegerException::class);
         Octal::fromInteger(9);
     }
 
     public function testInvalidIntegerValidOctalButContains8(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(IntegerException::class);
         Octal::fromInteger(800);
     }
 
     public function testInvalidString(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(IntegerException::class);
         Octal::fromString('777');
     }
 }

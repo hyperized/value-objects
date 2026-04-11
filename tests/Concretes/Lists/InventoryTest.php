@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Lists;
 
 use Hyperized\ValueObjects\Concretes\Lists\Inventory;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\ListException;
 use PHPUnit\Framework\TestCase;
 
 class InventoryTest extends TestCase {
@@ -12,7 +12,7 @@ class InventoryTest extends TestCase {
 	}
 
 	public function testFromCommaSeparatedStringError(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( ListException::class );
 		self::assertSame( [ 'one', 'two' ], Inventory::fromCommaSeparatedString( 'one-two' )->getValue() );
 	}
 

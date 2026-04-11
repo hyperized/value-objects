@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Integers;
 
 use Hyperized\ValueObjects\Concretes\Integers\Port;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\IntegerException;
 use PHPUnit\Framework\TestCase;
 
 class PortTest extends TestCase {
@@ -24,12 +24,12 @@ class PortTest extends TestCase {
 	}
 
 	public function testZeroPort(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( IntegerException::class );
 		Port::fromInteger( 0 );
 	}
 
 	public function testTooHighPort(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( IntegerException::class );
 		Port::fromInteger( 65536 );
 	}
 }

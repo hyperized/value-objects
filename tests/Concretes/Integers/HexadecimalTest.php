@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Integers;
 
 use Hyperized\ValueObjects\Concretes\Integers\Hexadecimal;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\IntegerException;
 use PHPUnit\Framework\TestCase;
 
 class HexadecimalTest extends TestCase {
@@ -24,7 +24,7 @@ class HexadecimalTest extends TestCase {
 	}
 
 	public function testInvalidHexString(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( IntegerException::class );
 		Hexadecimal::fromString( 'xyz' );
 	}
 }

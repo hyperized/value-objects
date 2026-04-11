@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
 use Hyperized\ValueObjects\Contracts\Strings\JsonInterface;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 
 abstract class AbstractJson implements JsonInterface {
 	protected readonly string $value;
@@ -17,7 +17,7 @@ abstract class AbstractJson implements JsonInterface {
 		json_decode( $value );
 
 		if ( json_last_error() !== JSON_ERROR_NONE ) {
-			throw InvalidArgumentException::invalidJson( $value );
+			throw StringException::invalidJson( $value );
 		}
 	}
 
