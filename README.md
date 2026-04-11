@@ -65,6 +65,13 @@ $id->getValue(); // 42
 | Class | Description |
 |---|---|
 | `Coordinate` | Latitude (-90/90) and longitude (-180/180) pair |
+| `BoundingBox` | Southwest/northeast coordinate pair with `contains()` |
+| `Distance` | Non-negative distance with unit conversions (m/km/mi/ft/nm) |
+| `Bearing` | Compass heading (0-360) with `getCardinal()` |
+| `Altitude` | Height above/below sea level with unit conversions (m/ft) |
+| `GeoHash` | Base-32 encoded location string with `getPrecision()` |
+| `Polygon` | Ordered list of coordinates (minimum 3 points) |
+| `LineString` | Ordered list of coordinates (minimum 2 points) |
 
 ### Strings
 
