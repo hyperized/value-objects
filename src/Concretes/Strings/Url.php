@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractUrl;
 
-class Url extends AbstractUrl {
+readonly class Url extends AbstractUrl {
 }

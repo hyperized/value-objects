@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Spatial;
 
 use Hyperized\ValueObjects\Abstracts\Spatial\AbstractGeoHash;
 
-class GeoHash extends AbstractGeoHash {
+readonly class GeoHash extends AbstractGeoHash {
 }

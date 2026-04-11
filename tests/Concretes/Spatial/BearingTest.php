@@ -3,6 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Spatial;
 
 use Hyperized\ValueObjects\Concretes\Spatial\Bearing;
+use Hyperized\ValueObjects\Enums\Spatial\CardinalDirection;
 use Hyperized\ValueObjects\Exceptions\SpatialException;
 use PHPUnit\Framework\TestCase;
 
@@ -13,49 +14,49 @@ class BearingTest extends TestCase {
 	}
 
 	public function testCardinalNorth(): void {
-		self::assertSame( 'N', Bearing::fromDegrees( 0.0 )->getCardinal() );
-		self::assertSame( 'N', Bearing::fromDegrees( 350.0 )->getCardinal() );
-		self::assertSame( 'N', Bearing::fromDegrees( 10.0 )->getCardinal() );
+		self::assertSame( CardinalDirection::North, Bearing::fromDegrees( 0.0 )->getCardinal() );
+		self::assertSame( CardinalDirection::North, Bearing::fromDegrees( 350.0 )->getCardinal() );
+		self::assertSame( CardinalDirection::North, Bearing::fromDegrees( 10.0 )->getCardinal() );
 	}
 
 	public function testCardinalNorthEast(): void {
-		self::assertSame( 'NE', Bearing::fromDegrees( 45.0 )->getCardinal() );
+		self::assertSame( CardinalDirection::NorthEast, Bearing::fromDegrees( 45.0 )->getCardinal() );
 	}
 
 	public function testCardinalEast(): void {
-		self::assertSame( 'E', Bearing::fromDegrees( 90.0 )->getCardinal() );
+		self::assertSame( CardinalDirection::East, Bearing::fromDegrees( 90.0 )->getCardinal() );
 	}
 
 	public function testCardinalSouthEast(): void {
-		self::assertSame( 'SE', Bearing::fromDegrees( 135.0 )->getCardinal() );
+		self::assertSame( CardinalDirection::SouthEast, Bearing::fromDegrees( 135.0 )->getCardinal() );
 	}
 
 	public function testCardinalSouth(): void {
-		self::assertSame( 'S', Bearing::fromDegrees( 180.0 )->getCardinal() );
+		self::assertSame( CardinalDirection::South, Bearing::fromDegrees( 180.0 )->getCardinal() );
 	}
 
 	public function testCardinalSouthWest(): void {
-		self::assertSame( 'SW', Bearing::fromDegrees( 225.0 )->getCardinal() );
+		self::assertSame( CardinalDirection::SouthWest, Bearing::fromDegrees( 225.0 )->getCardinal() );
 	}
 
 	public function testCardinalWest(): void {
-		self::assertSame( 'W', Bearing::fromDegrees( 270.0 )->getCardinal() );
+		self::assertSame( CardinalDirection::West, Bearing::fromDegrees( 270.0 )->getCardinal() );
 	}
 
 	public function testCardinalNorthWest(): void {
-		self::assertSame( 'NW', Bearing::fromDegrees( 315.0 )->getCardinal() );
+		self::assertSame( CardinalDirection::NorthWest, Bearing::fromDegrees( 315.0 )->getCardinal() );
 	}
 
 	public function testCardinalBoundaries(): void {
 		// Test exact boundary values — these fall into the next cardinal direction
-		self::assertSame( 'NE', Bearing::fromDegrees( 22.5 )->getCardinal() );
-		self::assertSame( 'E', Bearing::fromDegrees( 67.5 )->getCardinal() );
-		self::assertSame( 'SE', Bearing::fromDegrees( 112.5 )->getCardinal() );
-		self::assertSame( 'S', Bearing::fromDegrees( 157.5 )->getCardinal() );
-		self::assertSame( 'SW', Bearing::fromDegrees( 202.5 )->getCardinal() );
-		self::assertSame( 'W', Bearing::fromDegrees( 247.5 )->getCardinal() );
-		self::assertSame( 'NW', Bearing::fromDegrees( 292.5 )->getCardinal() );
-		self::assertSame( 'N', Bearing::fromDegrees( 337.5 )->getCardinal() );
+		self::assertSame( CardinalDirection::NorthEast, Bearing::fromDegrees( 22.5 )->getCardinal() );
+		self::assertSame( CardinalDirection::East, Bearing::fromDegrees( 67.5 )->getCardinal() );
+		self::assertSame( CardinalDirection::SouthEast, Bearing::fromDegrees( 112.5 )->getCardinal() );
+		self::assertSame( CardinalDirection::South, Bearing::fromDegrees( 157.5 )->getCardinal() );
+		self::assertSame( CardinalDirection::SouthWest, Bearing::fromDegrees( 202.5 )->getCardinal() );
+		self::assertSame( CardinalDirection::West, Bearing::fromDegrees( 247.5 )->getCardinal() );
+		self::assertSame( CardinalDirection::NorthWest, Bearing::fromDegrees( 292.5 )->getCardinal() );
+		self::assertSame( CardinalDirection::North, Bearing::fromDegrees( 337.5 )->getCardinal() );
 	}
 
 	public function testBoundaryZero(): void {

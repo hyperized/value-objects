@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractByteArray;
 
-class ByteArray extends AbstractByteArray {
+readonly class ByteArray extends AbstractByteArray {
 }

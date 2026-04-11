@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractHostname;
 
-class Hostname extends AbstractHostname {
+readonly class Hostname extends AbstractHostname {
 }

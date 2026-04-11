@@ -5,8 +5,8 @@ namespace Hyperized\ValueObjects\Abstracts\Strings;
 use Hyperized\ValueObjects\Contracts\Strings\IpAddressInterface;
 use Hyperized\ValueObjects\Exceptions\StringException;
 
-abstract class AbstractIpAddress implements IpAddressInterface {
-	protected readonly string $value;
+abstract readonly class AbstractIpAddress implements IpAddressInterface {
+	protected string $value;
 
 	final protected function __construct( string $value ) {
 		static::validate( $value );
@@ -19,18 +19,22 @@ abstract class AbstractIpAddress implements IpAddressInterface {
 		}
 	}
 
+	#[\Override]
 	public static function fromString( string $value ): IpAddressInterface {
 		return new static( $value );
 	}
 
+	#[\Override]
 	public function getValue(): string {
 		return $this->value;
 	}
 
+	#[\Override]
 	public function isIPv4(): bool {
 		return filter_var( $this->value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) !== false;
 	}
 
+	#[\Override]
 	public function isIPv6(): bool {
 		return filter_var( $this->value, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 ) !== false;
 	}

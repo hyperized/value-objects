@@ -6,8 +6,8 @@ use Hyperized\ValueObjects\Contracts\RealNumbers\PercentageInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 use Hyperized\ValueObjects\Exceptions\RealNumberException;
 
-abstract class AbstractPercentage implements PercentageInterface {
-	protected readonly float $value;
+abstract readonly class AbstractPercentage implements PercentageInterface {
+	protected float $value;
 
 	final protected function __construct( float $value ) {
 		static::validate( $value );
@@ -20,14 +20,17 @@ abstract class AbstractPercentage implements PercentageInterface {
 		}
 	}
 
+	#[\Override]
 	public static function fromFloat( float $value ): PercentageInterface {
 		return new static( $value );
 	}
 
+	#[\Override]
 	public static function fromInteger( int $value ): PercentageInterface {
 		return new static( (float) $value );
 	}
 
+	#[\Override]
 	public static function fromString( string $value ): PercentageInterface {
 		if ( ! is_numeric( $value ) ) {
 			throw InvalidArgumentException::notNumericString( $value );
@@ -36,10 +39,12 @@ abstract class AbstractPercentage implements PercentageInterface {
 		return new static( (float) $value );
 	}
 
+	#[\Override]
 	public function getValue(): float {
 		return $this->value;
 	}
 
+	#[\Override]
 	public function asFraction(): float {
 		return $this->value / 100.0;
 	}

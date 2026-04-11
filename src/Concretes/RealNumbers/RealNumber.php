@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\RealNumbers;
 
 use Hyperized\ValueObjects\Abstracts\RealNumbers\AbstractRealNumber;
 
-class RealNumber extends AbstractRealNumber {
+readonly class RealNumber extends AbstractRealNumber {
 }

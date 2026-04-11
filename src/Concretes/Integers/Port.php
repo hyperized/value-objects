@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Integers;
 
 use Hyperized\ValueObjects\Abstracts\Integers\AbstractPort;
 
-class Port extends AbstractPort {
+readonly class Port extends AbstractPort {
 }

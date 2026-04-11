@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Spatial;
 
 use Hyperized\ValueObjects\Abstracts\Spatial\AbstractLineString;
 
-class LineString extends AbstractLineString {
+readonly class LineString extends AbstractLineString {
 }

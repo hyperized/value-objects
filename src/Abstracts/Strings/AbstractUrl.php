@@ -5,8 +5,8 @@ namespace Hyperized\ValueObjects\Abstracts\Strings;
 use Hyperized\ValueObjects\Contracts\Strings\UrlInterface;
 use Hyperized\ValueObjects\Exceptions\StringException;
 
-abstract class AbstractUrl implements UrlInterface {
-	protected readonly string $value;
+abstract readonly class AbstractUrl implements UrlInterface {
+	protected string $value;
 
 	final protected function __construct( string $value ) {
 		static::validate( $value );
@@ -19,22 +19,27 @@ abstract class AbstractUrl implements UrlInterface {
 		}
 	}
 
+	#[\Override]
 	public static function fromString( string $value ): UrlInterface {
 		return new static( $value );
 	}
 
+	#[\Override]
 	public function getValue(): string {
 		return $this->value;
 	}
 
+	#[\Override]
 	public function getScheme(): string {
 		return (string) parse_url( $this->value, PHP_URL_SCHEME );
 	}
 
+	#[\Override]
 	public function getHost(): string {
 		return (string) parse_url( $this->value, PHP_URL_HOST );
 	}
 
+	#[\Override]
 	public function getPath(): string {
 		return (string) parse_url( $this->value, PHP_URL_PATH );
 	}

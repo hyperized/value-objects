@@ -6,9 +6,9 @@ use Hyperized\ValueObjects\Contracts\Spatial\CoordinateInterface;
 use Hyperized\ValueObjects\Contracts\Spatial\LineStringInterface;
 use Hyperized\ValueObjects\Exceptions\SpatialException;
 
-abstract class AbstractLineString implements LineStringInterface {
+abstract readonly class AbstractLineString implements LineStringInterface {
 	/** @var array<CoordinateInterface> */
-	protected readonly array $points;
+	protected array $points;
 
 	/**
 	 * @param array<CoordinateInterface> $points
@@ -30,6 +30,7 @@ abstract class AbstractLineString implements LineStringInterface {
 	/**
 	 * @param array<CoordinateInterface> $points
 	 */
+	#[\Override]
 	public static function fromCoordinates( array $points ): LineStringInterface {
 		return new static( $points );
 	}
@@ -37,10 +38,12 @@ abstract class AbstractLineString implements LineStringInterface {
 	/**
 	 * @return array<CoordinateInterface>
 	 */
+	#[\Override]
 	public function getPoints(): array {
 		return $this->points;
 	}
 
+	#[\Override]
 	public function count(): int {
 		return count( $this->points );
 	}

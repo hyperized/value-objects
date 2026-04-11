@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Spatial;
 
 use Hyperized\ValueObjects\Abstracts\Spatial\AbstractPolygon;
 
-class Polygon extends AbstractPolygon {
+readonly class Polygon extends AbstractPolygon {
 }

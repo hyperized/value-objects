@@ -5,8 +5,8 @@ namespace Hyperized\ValueObjects\Abstracts\Integers;
 use Hyperized\ValueObjects\Contracts\Integers\IntegerInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
-abstract class AbstractInteger implements IntegerInterface {
-	protected readonly int $value;
+abstract readonly class AbstractInteger implements IntegerInterface {
+	protected int $value;
 
 	final protected function __construct( int $value ) {
 		static::validate( $value );
@@ -17,10 +17,12 @@ abstract class AbstractInteger implements IntegerInterface {
 		// No validation required beyond type
 	}
 
+	#[\Override]
 	public static function fromInteger( int $value ): IntegerInterface {
 		return new static( $value );
 	}
 
+	#[\Override]
 	public static function fromString( string $value ): IntegerInterface {
 		if ( ! is_numeric( $value ) ) {
 			throw InvalidArgumentException::notNumericString( $value );
@@ -29,6 +31,7 @@ abstract class AbstractInteger implements IntegerInterface {
 		return new static( (int) $value );
 	}
 
+	#[\Override]
 	public function getValue(): int {
 		return $this->value;
 	}

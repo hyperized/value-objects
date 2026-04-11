@@ -3,10 +3,11 @@
 namespace Hyperized\ValueObjects\Abstracts\Spatial;
 
 use Hyperized\ValueObjects\Contracts\Spatial\BearingInterface;
+use Hyperized\ValueObjects\Enums\Spatial\CardinalDirection;
 use Hyperized\ValueObjects\Exceptions\SpatialException;
 
-abstract class AbstractBearing implements BearingInterface {
-	protected readonly float $degrees;
+abstract readonly class AbstractBearing implements BearingInterface {
+	protected float $degrees;
 
 	final protected function __construct( float $degrees ) {
 		static::validate( $degrees );
@@ -19,24 +20,27 @@ abstract class AbstractBearing implements BearingInterface {
 		}
 	}
 
+	#[\Override]
 	public static function fromDegrees( float $degrees ): BearingInterface {
 		return new static( $degrees );
 	}
 
+	#[\Override]
 	public function getValue(): float {
 		return $this->degrees;
 	}
 
-	public function getCardinal(): string {
+	#[\Override]
+	public function getCardinal(): CardinalDirection {
 		return match ( true ) {
-			$this->degrees >= 337.5 || $this->degrees < 22.5 => 'N',
-			$this->degrees < 67.5 => 'NE',
-			$this->degrees < 112.5 => 'E',
-			$this->degrees < 157.5 => 'SE',
-			$this->degrees < 202.5 => 'S',
-			$this->degrees < 247.5 => 'SW',
-			$this->degrees < 292.5 => 'W',
-			default => 'NW',
+			$this->degrees >= 337.5 || $this->degrees < 22.5 => CardinalDirection::North,
+			$this->degrees < 67.5 => CardinalDirection::NorthEast,
+			$this->degrees < 112.5 => CardinalDirection::East,
+			$this->degrees < 157.5 => CardinalDirection::SouthEast,
+			$this->degrees < 202.5 => CardinalDirection::South,
+			$this->degrees < 247.5 => CardinalDirection::SouthWest,
+			$this->degrees < 292.5 => CardinalDirection::West,
+			default => CardinalDirection::NorthWest,
 		};
 	}
 }

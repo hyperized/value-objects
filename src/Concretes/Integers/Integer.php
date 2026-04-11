@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Integers;
 
 use Hyperized\ValueObjects\Abstracts\Integers\AbstractInteger;
 
-class Integer extends AbstractInteger {
+readonly class Integer extends AbstractInteger {
 }

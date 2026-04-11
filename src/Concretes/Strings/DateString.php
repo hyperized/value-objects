@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractDateString;
 
-class DateString extends AbstractDateString {
+readonly class DateString extends AbstractDateString {
 }

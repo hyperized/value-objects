@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Spatial;
 
 use Hyperized\ValueObjects\Abstracts\Spatial\AbstractCoordinate;
 
-class Coordinate extends AbstractCoordinate {
+readonly class Coordinate extends AbstractCoordinate {
 }

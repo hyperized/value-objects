@@ -4,7 +4,8 @@ namespace Hyperized\ValueObjects\Abstracts\Integers;
 
 use Hyperized\ValueObjects\Exceptions\IntegerException;
 
-abstract class AbstractPositiveInteger extends AbstractInteger {
+abstract readonly class AbstractPositiveInteger extends AbstractInteger {
+	#[\Override]
 	protected static function validate( int $value ): void {
 		if ( $value <= 0 ) {
 			throw IntegerException::negativeInteger();

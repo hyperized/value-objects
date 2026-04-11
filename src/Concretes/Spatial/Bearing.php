@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Spatial;
 
 use Hyperized\ValueObjects\Abstracts\Spatial\AbstractBearing;
 
-class Bearing extends AbstractBearing {
+readonly class Bearing extends AbstractBearing {
 }
