@@ -9,11 +9,9 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractEmail;
-use Hyperized\ValueObjects\Abstracts\Strings\EmailInterface;
 use Hyperized\ValueObjects\Abstracts\Integers\AbstractRangedInteger;
-use Hyperized\ValueObjects\Abstracts\Integers\IntegerInterface;
+use Hyperized\ValueObjects\Contracts\Integers\IntegerInterface;
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractByteArray;
-use Hyperized\ValueObjects\Abstracts\Strings\ByteArrayInterface;
 
 /**
  * A company email that must end with @company.com

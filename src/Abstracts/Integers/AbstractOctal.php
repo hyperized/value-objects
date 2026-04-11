@@ -2,7 +2,8 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Contracts\Integers\OctalIntegerInterface;
+use Hyperized\ValueObjects\Exceptions\IntegerException;
 
 abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInterface {
 	protected static string $pattern = '/0[0-7]+(_[0-7]+)*/';
@@ -15,7 +16,7 @@ abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInte
 
 	protected static function validateOctal( int $value ): void {
 		if ( ! static::canConvertAndBack( $value ) ) {
-			throw InvalidArgumentException::notAnOctal();
+			throw IntegerException::notAnOctal();
 		}
 	}
 
@@ -40,7 +41,7 @@ abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInte
 
 	protected static function validateOctalInteger( int $value ): void {
 		if ( static::containsInvalidOctalNumbers( $value ) || ! static::canConvertAndBack( $value ) ) {
-			throw InvalidArgumentException::notAnOctal();
+			throw IntegerException::notAnOctal();
 		}
 	}
 
@@ -56,7 +57,7 @@ abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInte
 
 	protected static function validateOctalString( string $value ): void {
 		if ( ! static::isOctalString( $value ) ) {
-			throw InvalidArgumentException::notAnOctal();
+			throw IntegerException::notAnOctal();
 		}
 	}
 

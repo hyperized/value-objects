@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\Uri;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 
 class UriTest extends TestCase {
@@ -50,12 +50,12 @@ class UriTest extends TestCase {
 	}
 
 	public function testNoScheme(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Uri::fromString( '/just/a/path' );
 	}
 
 	public function testSeriouslyMalformedUri(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Uri::fromString( 'http:///example.com:port///path' );
 	}
 }

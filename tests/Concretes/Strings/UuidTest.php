@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\Uuid;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 
 class UuidTest extends TestCase {
@@ -26,12 +26,12 @@ class UuidTest extends TestCase {
 	}
 
 	public function testInvalidUuid(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Uuid::fromString( 'not-a-uuid' );
 	}
 
 	public function testTooShortUuid(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Uuid::fromString( '550e8400-e29b-41d4-a716' );
 	}
 }

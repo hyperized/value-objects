@@ -11,7 +11,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use Hyperized\ValueObjects\Concretes\Integers\PositiveInteger;
 use Hyperized\ValueObjects\Concretes\Integers\Port;
 use Hyperized\ValueObjects\Concretes\RealNumbers\Percentage;
-use Hyperized\ValueObjects\Concretes\RealNumbers\Coordinate;
+use Hyperized\ValueObjects\Concretes\Spatial\Coordinate;
 use Hyperized\ValueObjects\Concretes\Strings\Email;
 use Hyperized\ValueObjects\Concretes\Strings\Uuid;
 use Hyperized\ValueObjects\Concretes\Strings\IpAddress;

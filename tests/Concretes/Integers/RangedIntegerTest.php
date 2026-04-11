@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Integers;
 
 use Hyperized\ValueObjects\Concretes\Integers\RangedInteger as RangedIntegerConcrete;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\IntegerException;
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertSame;
 
@@ -22,12 +22,12 @@ class RangedIntegerTest extends TestCase {
 	}
 
 	public function testFromRangeOutRangeHigh(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( IntegerException::class );
 		RangedIntegerConcrete::fromRange( static::$higher, static::$minimum, static::$maximum );
 	}
 
 	public function testFromRangeOutRangeLow(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( IntegerException::class );
 		RangedIntegerConcrete::fromRange( static::$lower, static::$minimum, static::$maximum );
 	}
 

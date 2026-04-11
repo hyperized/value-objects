@@ -2,12 +2,12 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\IntegerException;
 
 abstract class AbstractNegativeInteger extends AbstractInteger {
 	protected static function validate( int $value ): void {
 		if ( $value >= 0 ) {
-			throw InvalidArgumentException::positiveInteger();
+			throw IntegerException::positiveInteger();
 		}
 	}
 }

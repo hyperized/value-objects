@@ -4,7 +4,7 @@ namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use DateTimeImmutable;
 use Hyperized\ValueObjects\Concretes\Strings\DateString;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 
 class DateStringTest extends TestCase {
@@ -31,12 +31,12 @@ class DateStringTest extends TestCase {
 	}
 
 	public function testInvalidDateString(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		DateString::fromString( 'not-a-date' );
 	}
 
 	public function testEmptyDateString(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		DateString::fromString( '' );
 	}
 }

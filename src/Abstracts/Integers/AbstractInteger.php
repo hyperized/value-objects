@@ -2,6 +2,7 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
+use Hyperized\ValueObjects\Contracts\Integers\IntegerInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractInteger implements IntegerInterface {

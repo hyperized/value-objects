@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\Hostname;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 
 class HostnameTest extends TestCase {
@@ -25,17 +25,17 @@ class HostnameTest extends TestCase {
 	}
 
 	public function testInvalidHostnameStartsWithDash(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Hostname::fromString( '-invalid.com' );
 	}
 
 	public function testInvalidHostnameSpecialChars(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Hostname::fromString( 'invalid host!.com' );
 	}
 
 	public function testEmptyHostname(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Hostname::fromString( '' );
 	}
 
@@ -45,7 +45,7 @@ class HostnameTest extends TestCase {
 	}
 
 	public function testTooLongHostname(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Hostname::fromString( str_repeat( 'a', 63 ) . '.' . str_repeat( 'b', 63 ) . '.' . str_repeat( 'c', 63 ) . '.' . str_repeat( 'd', 62 ) );
 	}
 }

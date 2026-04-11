@@ -2,7 +2,8 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Contracts\Strings\UuidInterface;
+use Hyperized\ValueObjects\Exceptions\StringException;
 
 abstract class AbstractUuid implements UuidInterface {
 	protected static string $pattern = '/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i';
@@ -16,7 +17,7 @@ abstract class AbstractUuid implements UuidInterface {
 
 	protected static function validate( string $value ): void {
 		if ( ! preg_match( static::$pattern, $value ) ) {
-			throw InvalidArgumentException::invalidUuid( $value );
+			throw StringException::invalidUuid( $value );
 		}
 	}
 

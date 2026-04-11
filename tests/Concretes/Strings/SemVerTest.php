@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\SemVer;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 
 class SemVerTest extends TestCase {
@@ -40,12 +40,12 @@ class SemVerTest extends TestCase {
 	}
 
 	public function testInvalidSemVer(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		SemVer::fromString( 'not-a-version' );
 	}
 
 	public function testIncompleteSemVer(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		SemVer::fromString( '1.2' );
 	}
 }

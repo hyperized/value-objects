@@ -2,7 +2,8 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Contracts\Strings\EmailInterface;
+use Hyperized\ValueObjects\Exceptions\StringException;
 
 abstract class AbstractEmail implements EmailInterface {
 	protected readonly string $value;
@@ -14,7 +15,7 @@ abstract class AbstractEmail implements EmailInterface {
 
 	protected static function validate( string $value ): void {
 		if ( filter_var( $value, FILTER_VALIDATE_EMAIL ) === false ) {
-			throw InvalidArgumentException::invalidEmail( $value );
+			throw StringException::invalidEmail( $value );
 		}
 	}
 

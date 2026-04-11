@@ -2,7 +2,9 @@
 
 namespace Hyperized\ValueObjects\Abstracts\RealNumbers;
 
+use Hyperized\ValueObjects\Contracts\RealNumbers\PercentageInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\RealNumberException;
 
 abstract class AbstractPercentage implements PercentageInterface {
 	protected readonly float $value;
@@ -14,7 +16,7 @@ abstract class AbstractPercentage implements PercentageInterface {
 
 	protected static function validate( float $value ): void {
 		if ( $value < 0.0 || $value > 100.0 ) {
-			throw InvalidArgumentException::invalidPercentage( $value );
+			throw RealNumberException::invalidPercentage( $value );
 		}
 	}
 

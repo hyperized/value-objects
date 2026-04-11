@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\MacAddress;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 
 class MacAddressTest extends TestCase {
@@ -18,12 +18,12 @@ class MacAddressTest extends TestCase {
 	}
 
 	public function testInvalidMacAddress(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		MacAddress::fromString( 'not-a-mac' );
 	}
 
 	public function testTooShortMacAddress(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		MacAddress::fromString( '00:1A:2B' );
 	}
 }

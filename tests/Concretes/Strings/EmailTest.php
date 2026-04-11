@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\Email;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 
 class EmailTest extends TestCase {
@@ -21,12 +21,12 @@ class EmailTest extends TestCase {
 	}
 
 	public function testInvalidEmail(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Email::fromString( 'not-an-email' );
 	}
 
 	public function testEmptyStringEmail(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( StringException::class );
 		Email::fromString( '' );
 	}
 

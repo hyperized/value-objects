@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Strings;
 
 use Hyperized\ValueObjects\Concretes\Strings\NonEmptyByteArray;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\StringException;
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertSame;
 
@@ -16,7 +16,7 @@ class NonEmptyByteArrayTest extends TestCase
 
     public function testFilledString(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(StringException::class);
         NonEmptyByteArray::fromString('');
     }
 }

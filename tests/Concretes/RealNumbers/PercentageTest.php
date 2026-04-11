@@ -4,6 +4,7 @@ namespace Hyperized\ValueObjects\Tests\Concretes\RealNumbers;
 
 use Hyperized\ValueObjects\Concretes\RealNumbers\Percentage;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Exceptions\RealNumberException;
 use PHPUnit\Framework\TestCase;
 
 class PercentageTest extends TestCase {
@@ -32,12 +33,12 @@ class PercentageTest extends TestCase {
 	}
 
 	public function testTooHigh(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( RealNumberException::class );
 		Percentage::fromFloat( 100.1 );
 	}
 
 	public function testTooLow(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( RealNumberException::class );
 		Percentage::fromFloat( -0.1 );
 	}
 

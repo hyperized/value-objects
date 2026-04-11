@@ -2,7 +2,8 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Contracts\Strings\IpAddressInterface;
+use Hyperized\ValueObjects\Exceptions\StringException;
 
 abstract class AbstractIpAddress implements IpAddressInterface {
 	protected readonly string $value;
@@ -14,7 +15,7 @@ abstract class AbstractIpAddress implements IpAddressInterface {
 
 	protected static function validate( string $value ): void {
 		if ( filter_var( $value, FILTER_VALIDATE_IP ) === false ) {
-			throw InvalidArgumentException::invalidIpAddress( $value );
+			throw StringException::invalidIpAddress( $value );
 		}
 	}
 

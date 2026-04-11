@@ -2,7 +2,8 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Contracts\Strings\SemVerInterface;
+use Hyperized\ValueObjects\Exceptions\StringException;
 
 abstract class AbstractSemVer implements SemVerInterface {
 	protected static string $pattern = '/^v?(\d+)\.(\d+)\.(\d+)(?:-[\w.]+)?(?:\+[\w.]+)?$/';
@@ -16,7 +17,7 @@ abstract class AbstractSemVer implements SemVerInterface {
 
 	protected static function validate( string $value ): void {
 		if ( ! preg_match( static::$pattern, $value ) ) {
-			throw InvalidArgumentException::invalidSemVer( $value );
+			throw StringException::invalidSemVer( $value );
 		}
 	}
 
