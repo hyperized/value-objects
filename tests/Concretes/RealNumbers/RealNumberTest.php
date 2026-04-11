@@ -3,6 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\RealNumbers;
 
 use Hyperized\ValueObjects\Concretes\RealNumbers\RealNumber;
+use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertSame;
@@ -46,5 +47,10 @@ class RealNumberTest extends TestCase {
 	#[DataProvider( 'integerProvider' )]
 	public function testFromInteger( int $integer, float $float ): void {
 		assertSame( $float, RealNumber::fromInteger( $integer )->getValue() );
+	}
+
+	public function testFromStringNonNumeric(): void {
+		$this->expectException( InvalidArgumentException::class );
+		RealNumber::fromString( 'not-a-number' );
 	}
 }

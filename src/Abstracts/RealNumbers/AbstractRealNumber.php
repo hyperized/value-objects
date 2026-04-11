@@ -2,8 +2,10 @@
 
 namespace Hyperized\ValueObjects\Abstracts\RealNumbers;
 
-class AbstractRealNumber implements RealNumberInterface {
-	protected float $value;
+use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+
+abstract class AbstractRealNumber implements RealNumberInterface {
+	protected readonly float $value;
 
 	final protected function __construct( float $value ) {
 		static::validate( $value );
@@ -23,6 +25,10 @@ class AbstractRealNumber implements RealNumberInterface {
 	}
 
 	public static function fromString( string $value ): RealNumberInterface {
+		if ( ! is_numeric( $value ) ) {
+			throw InvalidArgumentException::notNumericString( $value );
+		}
+
 		return new static( (float) $value );
 	}
 

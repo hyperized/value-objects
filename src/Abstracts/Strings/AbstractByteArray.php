@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
 abstract class AbstractByteArray implements ByteArrayInterface {
-	protected string $value;
+	protected readonly string $value;
 
 	final protected function __construct( string $value ) {
 		static::validate( $value );

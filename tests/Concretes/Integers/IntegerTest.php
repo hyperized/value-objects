@@ -3,6 +3,7 @@
 namespace Hyperized\ValueObjects\Tests\Concretes\Integers;
 
 use Hyperized\ValueObjects\Concretes\Integers\Integer;
+use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use TypeError;
 use function PHPUnit\Framework\assertSame;
@@ -29,5 +30,11 @@ class IntegerTest extends TestCase
     {
         $this->expectException(TypeError::class);
         assertSame(12, Integer::fromInteger("012")->getValue());
+    }
+
+    public function testFromStringNonNumeric(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        Integer::fromString("abc");
     }
 }

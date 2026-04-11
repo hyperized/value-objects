@@ -4,11 +4,11 @@ namespace Hyperized\ValueObjects\Exceptions;
 
 class InvalidArgumentException extends \InvalidArgumentException {
 	public static function negativeInteger(): InvalidArgumentException {
-		return new self( 'Integer is smaller than 0 (zero)' );
+		return new self( 'Integer must be positive (larger than 0)' );
 	}
 
 	public static function positiveInteger(): InvalidArgumentException {
-		return new self( 'Integer is larger than 0 (zero)' );
+		return new self( 'Integer must be negative (smaller than 0)' );
 	}
 
 	public static function notAnOctal(): InvalidArgumentException {
@@ -27,11 +27,11 @@ class InvalidArgumentException extends \InvalidArgumentException {
 		return new self( 'Byte array is not empty' );
 	}
 
-	public static function notACommaSeperatedString(): InvalidArgumentException {
-		return new self( 'String is not comma seperated' );
+	public static function notACommaSeparatedString(): InvalidArgumentException {
+		return new self( 'String is not comma separated' );
 	}
 
-	public static function notAList(): InvalidArgumentException {
-		return new self( 'Array is not a list' );
+	public static function notNumericString( string $value ): InvalidArgumentException {
+		return new self( "String is not a valid numeric value: '$value'" );
 	}
 }
