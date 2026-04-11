@@ -5,6 +5,7 @@ namespace Hyperized\ValueObjects\Abstracts\Lists;
 use Hyperized\ValueObjects\Contracts\Lists\ListInterface;
 use Hyperized\ValueObjects\Exceptions\ListException;
 use function explode;
+use function str_contains;
 
 /**
  * Lists is a reserved name, inventory sort of covers it.
@@ -38,7 +39,7 @@ abstract readonly class AbstractInventory implements ListInterface {
 	}
 
 	private static function stringContainsComma( string $haystack ): bool {
-		return mb_strpos( $haystack, ',' ) !== false;
+		return str_contains( $haystack, ',' );
 	}
 
 	#[\Override]
