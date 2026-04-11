@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractEmail;
 
-class Email extends AbstractEmail {
+readonly class Email extends AbstractEmail {
 }

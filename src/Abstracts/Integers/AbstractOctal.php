@@ -5,8 +5,8 @@ namespace Hyperized\ValueObjects\Abstracts\Integers;
 use Hyperized\ValueObjects\Contracts\Integers\OctalIntegerInterface;
 use Hyperized\ValueObjects\Exceptions\IntegerException;
 
-abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInterface {
-	protected static string $pattern = '/0[0-7]+(_[0-7]+)*/';
+abstract readonly class AbstractOctal extends AbstractInteger implements OctalIntegerInterface {
+	protected const string PATTERN = '/0[0-7]+(_[0-7]+)*/';
 
 	public static function fromOctal( int $value ): self {
 		static::validateOctal( $value );
@@ -32,6 +32,7 @@ abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInte
 		return (int) decoct( (int) $octal ) === $value;
 	}
 
+	#[\Override]
 	public static function fromInteger( int $value ): OctalIntegerInterface {
 		// PHP casts $value to octal in integer when it detects base 8.
 		static::validateOctalInteger( $value );
@@ -49,6 +50,7 @@ abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInte
 		return (bool) preg_match( '/[89]/', (string) $value );
 	}
 
+	#[\Override]
 	public static function fromString( string $value ): self {
 		static::validateOctalString( $value );
 
@@ -62,17 +64,20 @@ abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInte
 	}
 
 	protected static function isOctalString( string $value ): bool {
-		return (bool) preg_match( static::$pattern, $value );
+		return (bool) preg_match( static::PATTERN, $value );
 	}
 
+	#[\Override]
 	public function getValue(): int {
 		return $this->value;
 	}
 
+	#[\Override]
 	public function asDecimal(): int {
 		return (int) decoct( $this->value );
 	}
 
+	#[\Override]
 	public function asDecimalString(): string {
 		return '0' . decoct( $this->value );
 	}

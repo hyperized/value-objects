@@ -6,8 +6,8 @@ use DateTimeImmutable;
 use Hyperized\ValueObjects\Contracts\Strings\DateStringInterface;
 use Hyperized\ValueObjects\Exceptions\StringException;
 
-abstract class AbstractDateString implements DateStringInterface {
-	protected readonly string $value;
+abstract readonly class AbstractDateString implements DateStringInterface {
+	protected string $value;
 
 	final protected function __construct( string $value ) {
 		static::validate( $value );
@@ -30,14 +30,17 @@ abstract class AbstractDateString implements DateStringInterface {
 		}
 	}
 
+	#[\Override]
 	public static function fromString( string $value ): DateStringInterface {
 		return new static( $value );
 	}
 
+	#[\Override]
 	public function getValue(): string {
 		return $this->value;
 	}
 
+	#[\Override]
 	public function toDateTimeImmutable(): DateTimeImmutable {
 		return new DateTimeImmutable( $this->value );
 	}

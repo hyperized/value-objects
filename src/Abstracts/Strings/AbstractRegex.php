@@ -5,8 +5,8 @@ namespace Hyperized\ValueObjects\Abstracts\Strings;
 use Hyperized\ValueObjects\Contracts\Strings\RegexInterface;
 use Hyperized\ValueObjects\Exceptions\StringException;
 
-abstract class AbstractRegex implements RegexInterface {
-	protected readonly string $value;
+abstract readonly class AbstractRegex implements RegexInterface {
+	protected string $value;
 
 	final protected function __construct( string $value ) {
 		static::validate( $value );
@@ -19,14 +19,17 @@ abstract class AbstractRegex implements RegexInterface {
 		}
 	}
 
+	#[\Override]
 	public static function fromString( string $value ): RegexInterface {
 		return new static( $value );
 	}
 
+	#[\Override]
 	public function getValue(): string {
 		return $this->value;
 	}
 
+	#[\Override]
 	public function matches( string $subject ): bool {
 		return (bool) preg_match( $this->value, $subject );
 	}

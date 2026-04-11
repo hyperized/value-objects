@@ -4,6 +4,6 @@ namespace Hyperized\ValueObjects\Concretes\Lists;
 
 use Hyperized\ValueObjects\Abstracts\Lists\AbstractInventory;
 
-class Inventory extends AbstractInventory {
+readonly class Inventory extends AbstractInventory {
 
 }

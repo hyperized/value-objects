@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractJson;
 
-class Json extends AbstractJson {
+readonly class Json extends AbstractJson {
 }

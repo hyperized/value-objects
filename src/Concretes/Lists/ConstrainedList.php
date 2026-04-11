@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Lists;
 
 use Hyperized\ValueObjects\Abstracts\Lists\AbstractConstrainedList;
 
-class ConstrainedList extends AbstractConstrainedList {
+readonly class ConstrainedList extends AbstractConstrainedList {
 }

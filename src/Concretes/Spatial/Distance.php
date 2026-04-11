@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Spatial;
 
 use Hyperized\ValueObjects\Abstracts\Spatial\AbstractDistance;
 
-class Distance extends AbstractDistance {
+readonly class Distance extends AbstractDistance {
 }

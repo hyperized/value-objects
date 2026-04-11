@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractMacAddress;
 
-class MacAddress extends AbstractMacAddress {
+readonly class MacAddress extends AbstractMacAddress {
 }

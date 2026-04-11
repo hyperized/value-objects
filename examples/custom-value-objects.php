@@ -16,8 +16,9 @@ use Hyperized\ValueObjects\Abstracts\Strings\AbstractByteArray;
 /**
  * A company email that must end with @company.com
  */
-class CompanyEmail extends AbstractEmail
+readonly class CompanyEmail extends AbstractEmail
 {
+    #[\Override]
     protected static function validate(string $value): void
     {
         parent::validate($value);
@@ -31,8 +32,9 @@ class CompanyEmail extends AbstractEmail
 /**
  * An HTTP status code (100-599)
  */
-class HttpStatusCode extends AbstractRangedInteger
+readonly class HttpStatusCode extends AbstractRangedInteger
 {
+    #[\Override]
     public static function fromInteger(int $value): IntegerInterface
     {
         return self::fromRange($value, 100, 599);
@@ -42,8 +44,9 @@ class HttpStatusCode extends AbstractRangedInteger
 /**
  * A non-blank string (no whitespace-only strings)
  */
-class NonBlankString extends AbstractByteArray
+readonly class NonBlankString extends AbstractByteArray
 {
+    #[\Override]
     protected static function validate(string $value): void
     {
         if (trim($value) === '') {

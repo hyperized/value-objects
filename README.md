@@ -4,7 +4,7 @@
 
 A typed, immutable value objects collection for PHP 8.3+.
 
-All value objects validate on construction, are immutable (`readonly` properties), and follow the same pattern: extend an abstract, get validation for free.
+All value objects validate on construction, are immutable (`readonly` classes), and follow the same pattern: extend an abstract, get validation for free.
 
 ## Install
 
@@ -33,7 +33,7 @@ Or extend an abstract to create your own domain-specific value object:
 ```php
 use Hyperized\ValueObjects\Abstracts\Integers\AbstractPositiveInteger;
 
-class UserId extends AbstractPositiveInteger {}
+readonly class UserId extends AbstractPositiveInteger {}
 
 $id = UserId::fromInteger(42);
 $id->getValue(); // 42
@@ -106,8 +106,9 @@ Every concrete class extends an abstract that you can extend for your own domain
 ```php
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractEmail;
 
-class CompanyEmail extends AbstractEmail
+readonly class CompanyEmail extends AbstractEmail
 {
+    #[\Override]
     protected static function validate(string $value): void
     {
         parent::validate($value);

@@ -41,7 +41,7 @@ echo "Dead Sea: {$deadSea->toMeters()} m / " . round($deadSea->toFeet(), 1) . " 
 
 // Initial bearing
 $heading = Bearing::fromDegrees(288.0);
-echo "\nInitial heading: {$heading->getValue()}° ({$heading->getCardinal()})\n";
+echo "\nInitial heading: {$heading->getValue()}° ({$heading->getCardinal()->value})\n";
 
 // GeoHash for Schiphol
 $hash = GeoHash::fromString('u173z');
@@ -85,5 +85,5 @@ echo "\n=== Compass Rose ===\n";
 $directions = [0.0, 45.0, 90.0, 135.0, 180.0, 225.0, 270.0, 315.0];
 foreach ($directions as $deg) {
     $b = Bearing::fromDegrees($deg);
-    echo sprintf("  %5.1f° = %s\n", $b->getValue(), $b->getCardinal());
+    echo sprintf("  %5.1f° = %s\n", $b->getValue(), $b->getCardinal()->value);
 }

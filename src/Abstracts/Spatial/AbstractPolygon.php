@@ -6,9 +6,9 @@ use Hyperized\ValueObjects\Contracts\Spatial\CoordinateInterface;
 use Hyperized\ValueObjects\Contracts\Spatial\PolygonInterface;
 use Hyperized\ValueObjects\Exceptions\SpatialException;
 
-abstract class AbstractPolygon implements PolygonInterface {
+abstract readonly class AbstractPolygon implements PolygonInterface {
 	/** @var array<CoordinateInterface> */
-	protected readonly array $points;
+	protected array $points;
 
 	/**
 	 * @param array<CoordinateInterface> $points
@@ -30,6 +30,7 @@ abstract class AbstractPolygon implements PolygonInterface {
 	/**
 	 * @param array<CoordinateInterface> $points
 	 */
+	#[\Override]
 	public static function fromCoordinates( array $points ): PolygonInterface {
 		return new static( $points );
 	}
@@ -37,10 +38,12 @@ abstract class AbstractPolygon implements PolygonInterface {
 	/**
 	 * @return array<CoordinateInterface>
 	 */
+	#[\Override]
 	public function getPoints(): array {
 		return $this->points;
 	}
 
+	#[\Override]
 	public function count(): int {
 		return count( $this->points );
 	}

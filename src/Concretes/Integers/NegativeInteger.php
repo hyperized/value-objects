@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Integers;
 
 use Hyperized\ValueObjects\Abstracts\Integers\AbstractNegativeInteger;
 
-class NegativeInteger extends AbstractNegativeInteger {
+readonly class NegativeInteger extends AbstractNegativeInteger {
 }

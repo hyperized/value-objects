@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\RealNumbers;
 
 use Hyperized\ValueObjects\Abstracts\RealNumbers\AbstractPercentage;
 
-class Percentage extends AbstractPercentage {
+readonly class Percentage extends AbstractPercentage {
 }

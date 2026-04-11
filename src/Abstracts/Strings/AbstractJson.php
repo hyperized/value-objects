@@ -5,8 +5,8 @@ namespace Hyperized\ValueObjects\Abstracts\Strings;
 use Hyperized\ValueObjects\Contracts\Strings\JsonInterface;
 use Hyperized\ValueObjects\Exceptions\StringException;
 
-abstract class AbstractJson implements JsonInterface {
-	protected readonly string $value;
+abstract readonly class AbstractJson implements JsonInterface {
+	protected string $value;
 
 	final protected function __construct( string $value ) {
 		static::validate( $value );
@@ -21,14 +21,17 @@ abstract class AbstractJson implements JsonInterface {
 		}
 	}
 
+	#[\Override]
 	public static function fromString( string $value ): JsonInterface {
 		return new static( $value );
 	}
 
+	#[\Override]
 	public function getValue(): string {
 		return $this->value;
 	}
 
+	#[\Override]
 	public function decode(): mixed {
 		return json_decode( $this->value, true );
 	}

@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractUuid;
 
-class Uuid extends AbstractUuid {
+readonly class Uuid extends AbstractUuid {
 }

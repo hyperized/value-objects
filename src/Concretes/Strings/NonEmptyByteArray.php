@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractNonEmptyByteArray;
 
-class NonEmptyByteArray extends AbstractNonEmptyByteArray {
+readonly class NonEmptyByteArray extends AbstractNonEmptyByteArray {
 }

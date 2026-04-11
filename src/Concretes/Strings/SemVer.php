@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractSemVer;
 
-class SemVer extends AbstractSemVer {
+readonly class SemVer extends AbstractSemVer {
 }

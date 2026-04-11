@@ -5,10 +5,10 @@ namespace Hyperized\ValueObjects\Abstracts\Strings;
 use Hyperized\ValueObjects\Contracts\Strings\MacAddressInterface;
 use Hyperized\ValueObjects\Exceptions\StringException;
 
-abstract class AbstractMacAddress implements MacAddressInterface {
-	protected static string $pattern = '/^([0-9a-f]{2}[:\-]){5}[0-9a-f]{2}$/i';
+abstract readonly class AbstractMacAddress implements MacAddressInterface {
+	protected const string PATTERN = '/^([0-9a-f]{2}[:\-]){5}[0-9a-f]{2}$/i';
 
-	protected readonly string $value;
+	protected string $value;
 
 	final protected function __construct( string $value ) {
 		static::validate( $value );
@@ -16,15 +16,17 @@ abstract class AbstractMacAddress implements MacAddressInterface {
 	}
 
 	protected static function validate( string $value ): void {
-		if ( ! preg_match( static::$pattern, $value ) ) {
+		if ( ! preg_match( static::PATTERN, $value ) ) {
 			throw StringException::invalidMacAddress( $value );
 		}
 	}
 
+	#[\Override]
 	public static function fromString( string $value ): MacAddressInterface {
 		return new static( $value );
 	}
 
+	#[\Override]
 	public function getValue(): string {
 		return $this->value;
 	}

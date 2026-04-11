@@ -5,9 +5,9 @@ namespace Hyperized\ValueObjects\Abstracts\Lists;
 use Hyperized\ValueObjects\Contracts\Lists\ConstrainedListInterface;
 use Hyperized\ValueObjects\Exceptions\ListException;
 
-abstract class AbstractConstrainedList implements ConstrainedListInterface {
+abstract readonly class AbstractConstrainedList implements ConstrainedListInterface {
 	/** @var array<string> */
-	protected readonly array $value;
+	protected array $value;
 
 	/**
 	 * @param array<string> $value
@@ -20,6 +20,7 @@ abstract class AbstractConstrainedList implements ConstrainedListInterface {
 	 * @param array<string> $values
 	 * @param array<string> $allowedValues
 	 */
+	#[\Override]
 	public static function fromArray( array $values, array $allowedValues ): ConstrainedListInterface {
 		foreach ( $values as $value ) {
 			if ( ! in_array( $value, $allowedValues, true ) ) {
@@ -30,10 +31,12 @@ abstract class AbstractConstrainedList implements ConstrainedListInterface {
 		return new static( $values );
 	}
 
+	#[\Override]
 	public function getValue(): array {
 		return $this->value;
 	}
 
+	#[\Override]
 	public function contains( string $value ): bool {
 		return in_array( $value, $this->value, true );
 	}

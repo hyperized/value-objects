@@ -5,9 +5,9 @@ namespace Hyperized\ValueObjects\Abstracts\Spatial;
 use Hyperized\ValueObjects\Contracts\Spatial\CoordinateInterface;
 use Hyperized\ValueObjects\Exceptions\SpatialException;
 
-abstract class AbstractCoordinate implements CoordinateInterface {
-	protected readonly float $latitude;
-	protected readonly float $longitude;
+abstract readonly class AbstractCoordinate implements CoordinateInterface {
+	protected float $latitude;
+	protected float $longitude;
 
 	final protected function __construct( float $latitude, float $longitude ) {
 		static::validate( $latitude, $longitude );
@@ -25,14 +25,17 @@ abstract class AbstractCoordinate implements CoordinateInterface {
 		}
 	}
 
+	#[\Override]
 	public static function fromLatitudeAndLongitude( float $latitude, float $longitude ): CoordinateInterface {
 		return new static( $latitude, $longitude );
 	}
 
+	#[\Override]
 	public function getLatitude(): float {
 		return $this->latitude;
 	}
 
+	#[\Override]
 	public function getLongitude(): float {
 		return $this->longitude;
 	}

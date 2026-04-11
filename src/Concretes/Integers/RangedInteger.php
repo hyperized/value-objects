@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Integers;
 
 use Hyperized\ValueObjects\Abstracts\Integers\AbstractRangedInteger;
 
-class RangedInteger extends AbstractRangedInteger {
+readonly class RangedInteger extends AbstractRangedInteger {
 }

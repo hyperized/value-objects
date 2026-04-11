@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Integers;
 
 use Hyperized\ValueObjects\Abstracts\Integers\AbstractHexadecimal;
 
-class Hexadecimal extends AbstractHexadecimal {
+readonly class Hexadecimal extends AbstractHexadecimal {
 }

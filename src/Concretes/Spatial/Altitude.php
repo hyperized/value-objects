@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Spatial;
 
 use Hyperized\ValueObjects\Abstracts\Spatial\AbstractAltitude;
 
-class Altitude extends AbstractAltitude {
+readonly class Altitude extends AbstractAltitude {
 }

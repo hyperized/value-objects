@@ -4,5 +4,5 @@ namespace Hyperized\ValueObjects\Concretes\Strings;
 
 use Hyperized\ValueObjects\Abstracts\Strings\AbstractIpAddress;
 
-class IpAddress extends AbstractIpAddress {
+readonly class IpAddress extends AbstractIpAddress {
 }
