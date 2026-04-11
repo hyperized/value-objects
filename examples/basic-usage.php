@@ -16,7 +16,7 @@ use Hyperized\ValueObjects\Concretes\Integers\Port;
 use Hyperized\ValueObjects\Concretes\Integers\Hexadecimal;
 use Hyperized\ValueObjects\Concretes\RealNumbers\RealNumber;
 use Hyperized\ValueObjects\Concretes\RealNumbers\Percentage;
-use Hyperized\ValueObjects\Concretes\RealNumbers\Coordinate;
+use Hyperized\ValueObjects\Concretes\Spatial\Coordinate;
 use Hyperized\ValueObjects\Concretes\Strings\ByteArray;
 use Hyperized\ValueObjects\Concretes\Strings\Email;
 use Hyperized\ValueObjects\Concretes\Strings\Url;

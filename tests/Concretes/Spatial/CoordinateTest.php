@@ -1,9 +1,9 @@
 <?php declare( strict_types=1 );
 
-namespace Hyperized\ValueObjects\Tests\Concretes\RealNumbers;
+namespace Hyperized\ValueObjects\Tests\Concretes\Spatial;
 
-use Hyperized\ValueObjects\Concretes\RealNumbers\Coordinate;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Concretes\Spatial\Coordinate;
+use Hyperized\ValueObjects\Exceptions\SpatialException;
 use PHPUnit\Framework\TestCase;
 
 class CoordinateTest extends TestCase {
@@ -26,12 +26,12 @@ class CoordinateTest extends TestCase {
 	}
 
 	public function testInvalidLatitude(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( SpatialException::class );
 		Coordinate::fromLatitudeAndLongitude( 91.0, 0.0 );
 	}
 
 	public function testInvalidLongitude(): void {
-		$this->expectException( InvalidArgumentException::class );
+		$this->expectException( SpatialException::class );
 		Coordinate::fromLatitudeAndLongitude( 0.0, 181.0 );
 	}
 }

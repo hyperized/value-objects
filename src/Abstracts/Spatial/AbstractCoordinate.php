@@ -1,9 +1,9 @@
 <?php declare( strict_types=1 );
 
-namespace Hyperized\ValueObjects\Abstracts\RealNumbers;
+namespace Hyperized\ValueObjects\Abstracts\Spatial;
 
-use Hyperized\ValueObjects\Contracts\RealNumbers\CoordinateInterface;
-use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
+use Hyperized\ValueObjects\Contracts\Spatial\CoordinateInterface;
+use Hyperized\ValueObjects\Exceptions\SpatialException;
 
 abstract class AbstractCoordinate implements CoordinateInterface {
 	protected readonly float $latitude;
@@ -17,11 +17,11 @@ abstract class AbstractCoordinate implements CoordinateInterface {
 
 	protected static function validate( float $latitude, float $longitude ): void {
 		if ( $latitude < -90.0 || $latitude > 90.0 ) {
-			throw InvalidArgumentException::invalidLatitude( $latitude );
+			throw SpatialException::invalidLatitude( $latitude );
 		}
 
 		if ( $longitude < -180.0 || $longitude > 180.0 ) {
-			throw InvalidArgumentException::invalidLongitude( $longitude );
+			throw SpatialException::invalidLongitude( $longitude );
 		}
 	}
 

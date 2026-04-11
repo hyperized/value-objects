@@ -60,6 +60,10 @@ $id->getValue(); // 42
 |---|---|
 | `RealNumber` | Any float value |
 | `Percentage` | Float between 0-100, with `asFraction()` |
+### Spatial
+
+| Class | Description |
+|---|---|
 | `Coordinate` | Latitude (-90/90) and longitude (-180/180) pair |
 
 ### Strings
