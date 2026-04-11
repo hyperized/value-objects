@@ -30,4 +30,10 @@ class NegativeIntegerTest extends TestCase
 		$this->expectException(InvalidArgumentException::class);
 		NegativeInteger::fromString('1');
 	}
+
+	public function testZeroIsNotNegative(): void
+	{
+		$this->expectException(InvalidArgumentException::class);
+		NegativeInteger::fromInteger(0);
+	}
 }

@@ -1,0 +1,38 @@
+{
+    "$schema": "vendor/infection/infection/resources/schema.json",
+    "source": {
+        "directories": [
+            "src"
+        ]
+    },
+    "mutators": {
+        "@default": true,
+        "ProtectedVisibility": false,
+        "MBString": false,
+        "MethodCallRemoval": {
+            "ignoreSourceCodeByRegex": [
+                ".*static::validate\\(.*"
+            ]
+        },
+        "Concat": {
+            "ignoreSourceCodeByRegex": [
+                ".*return new self\\(.*"
+            ]
+        },
+        "ConcatOperandRemoval": {
+            "ignoreSourceCodeByRegex": [
+                ".*return new self\\(.*"
+            ]
+        },
+        "ReturnRemoval": {
+            "ignore": [
+                "Hyperized\\ValueObjects\\Abstracts\\Integers\\AbstractOctal::canConvertAndBack"
+            ]
+        },
+        "LogicalOr": {
+            "ignore": [
+                "Hyperized\\ValueObjects\\Abstracts\\Integers\\AbstractOctal::validateOctalInteger"
+            ]
+        }
+    }
+}
