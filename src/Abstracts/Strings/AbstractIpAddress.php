@@ -2,6 +2,7 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
+use Hyperized\ValueObjects\Contracts\Strings\IpAddressInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractIpAddress implements IpAddressInterface {

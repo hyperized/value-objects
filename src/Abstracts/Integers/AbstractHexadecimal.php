@@ -2,6 +2,7 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
+use Hyperized\ValueObjects\Contracts\Integers\HexadecimalInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractHexadecimal implements HexadecimalInterface {

@@ -2,6 +2,7 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
+use Hyperized\ValueObjects\Contracts\Strings\EmailInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractEmail implements EmailInterface {

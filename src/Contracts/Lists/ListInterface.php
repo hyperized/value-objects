@@ -1,6 +1,6 @@
 <?php declare( strict_types=1 );
 
-namespace Hyperized\ValueObjects\Abstracts\Lists;
+namespace Hyperized\ValueObjects\Contracts\Lists;
 
 interface ListInterface {
 	public static function fromCommaSeparatedString( string $value ): ListInterface;

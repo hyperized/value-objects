@@ -2,6 +2,7 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Lists;
 
+use Hyperized\ValueObjects\Contracts\Lists\ListInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 use function explode;
 

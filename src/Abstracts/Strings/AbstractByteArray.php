@@ -2,6 +2,8 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
+use Hyperized\ValueObjects\Contracts\Strings\ByteArrayInterface;
+
 abstract class AbstractByteArray implements ByteArrayInterface {
 	protected readonly string $value;
 

@@ -2,6 +2,7 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
+use Hyperized\ValueObjects\Contracts\Strings\JsonInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractJson implements JsonInterface {

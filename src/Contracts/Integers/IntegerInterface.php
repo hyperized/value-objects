@@ -1,6 +1,6 @@
 <?php declare( strict_types=1 );
 
-namespace Hyperized\ValueObjects\Abstracts\Integers;
+namespace Hyperized\ValueObjects\Contracts\Integers;
 
 interface IntegerInterface {
 	public static function fromInteger( int $value ): IntegerInterface;

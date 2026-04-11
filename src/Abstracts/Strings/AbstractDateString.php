@@ -3,6 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Strings;
 
 use DateTimeImmutable;
+use Hyperized\ValueObjects\Contracts\Strings\DateStringInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractDateString implements DateStringInterface {

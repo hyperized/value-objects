@@ -2,6 +2,7 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Lists;
 
+use Hyperized\ValueObjects\Contracts\Lists\ConstrainedListInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractConstrainedList implements ConstrainedListInterface {

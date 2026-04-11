@@ -2,6 +2,7 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
+use Hyperized\ValueObjects\Contracts\Integers\OctalIntegerInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInterface {

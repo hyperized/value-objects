@@ -1,6 +1,6 @@
 <?php declare( strict_types=1 );
 
-namespace Hyperized\ValueObjects\Abstracts\Integers;
+namespace Hyperized\ValueObjects\Contracts\Integers;
 
 interface HexadecimalInterface {
 	public static function fromString( string $value ): HexadecimalInterface;

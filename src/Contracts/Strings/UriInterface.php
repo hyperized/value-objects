@@ -1,6 +1,6 @@
 <?php declare( strict_types=1 );
 
-namespace Hyperized\ValueObjects\Abstracts\Strings;
+namespace Hyperized\ValueObjects\Contracts\Strings;
 
 interface UriInterface {
 	public static function fromString( string $value ): UriInterface;

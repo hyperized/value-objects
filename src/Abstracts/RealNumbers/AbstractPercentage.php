@@ -2,6 +2,7 @@
 
 namespace Hyperized\ValueObjects\Abstracts\RealNumbers;
 
+use Hyperized\ValueObjects\Contracts\RealNumbers\PercentageInterface;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractPercentage implements PercentageInterface {
