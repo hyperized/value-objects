@@ -23,4 +23,9 @@ class PositiveIntegerTest extends TestCase {
 		$this->expectException( InvalidArgumentException::class );
 		PositiveInteger::fromInteger( static::$negative );
 	}
+
+	public function testZeroIsNotPositive(): void {
+		$this->expectException( InvalidArgumentException::class );
+		PositiveInteger::fromInteger( 0 );
+	}
 }

@@ -52,6 +52,29 @@ class OctalTest extends TestCase
         Octal::fromInteger(888);
     }
 
+    public function testInvalidIntegerContaining8(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        Octal::fromInteger(18);
+    }
+
+    public function testCanConvertAndBackWithInvalidDigits(): void
+    {
+        self::assertFalse(Octal::canConvertAndBack(89));
+    }
+
+    public function testInvalidIntegerWithOnlyDigit9(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        Octal::fromInteger(9);
+    }
+
+    public function testInvalidIntegerValidOctalButContains8(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        Octal::fromInteger(800);
+    }
+
     public function testInvalidString(): void
     {
         $this->expectException(InvalidArgumentException::class);

@@ -20,6 +20,7 @@ jobs:
         test:
           - phpunit
           - phpstan
+          - infection
     name: ${{ matrix.test }} on PHP${{ matrix.php }} with ${{ matrix.dependency-version }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:

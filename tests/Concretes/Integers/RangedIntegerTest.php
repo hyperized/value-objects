@@ -30,4 +30,18 @@ class RangedIntegerTest extends TestCase {
 		$this->expectException( InvalidArgumentException::class );
 		RangedIntegerConcrete::fromRange( static::$lower, static::$minimum, static::$maximum );
 	}
+
+	public function testFromRangeAtMinimumBoundary(): void {
+		assertSame(
+			static::$minimum,
+			RangedIntegerConcrete::fromRange( static::$minimum, static::$minimum, static::$maximum )->getValue()
+		);
+	}
+
+	public function testFromRangeAtMaximumBoundary(): void {
+		assertSame(
+			static::$maximum,
+			RangedIntegerConcrete::fromRange( static::$maximum, static::$minimum, static::$maximum )->getValue()
+		);
+	}
 }
