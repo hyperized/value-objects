@@ -8,9 +8,9 @@ use function explode;
 /**
  * Lists is a reserved name, inventory sort of covers it.
  */
-class AbstractInventory implements ListInterface {
+abstract class AbstractInventory implements ListInterface {
 	/** @var array<string> */
-	protected array $value;
+	protected readonly array $value;
 
 	/**
 	 * @param array<string> $value
@@ -27,9 +27,9 @@ class AbstractInventory implements ListInterface {
 		//
 	}
 
-	public static function fromCommaSeperatedString( string $value ): ListInterface {
+	public static function fromCommaSeparatedString( string $value ): ListInterface {
 		if ( ! self::stringContainsComma( $value ) ) {
-			throw InvalidArgumentException::notACommaSeperatedString();
+			throw InvalidArgumentException::notACommaSeparatedString();
 		}
 
 		return new static( explode( ',', $value ) );

@@ -2,7 +2,6 @@
 
 namespace Hyperized\ValueObjects\Abstracts\Integers;
 
-use Exception;
 use Hyperized\ValueObjects\Exceptions\InvalidArgumentException;
 
 abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInterface {
@@ -21,11 +20,13 @@ abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInte
 	}
 
 	public static function canConvertAndBack( int $value ): bool {
-		try {
-			$octal = octdec( (string) $value );
-		} catch ( Exception $exception ) {
+		$string = (string) $value;
+
+		if ( static::containsInvalidOctalNumbers( $value ) ) {
 			return false;
 		}
+
+		$octal = octdec( $string );
 
 		return (int) decoct( (int) $octal ) === $value;
 	}
@@ -44,7 +45,7 @@ abstract class AbstractOctal extends AbstractInteger implements OctalIntegerInte
 	}
 
 	protected static function containsInvalidOctalNumbers( int $value ): bool {
-		return in_array( $value, [ 8, 9 ], true );
+		return (bool) preg_match( '/[89]/', (string) $value );
 	}
 
 	public static function fromString( string $value ): self {

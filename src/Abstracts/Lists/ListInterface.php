@@ -3,7 +3,7 @@
 namespace Hyperized\ValueObjects\Abstracts\Lists;
 
 interface ListInterface {
-	public static function fromCommaSeperatedString( string $value ): ListInterface;
+	public static function fromCommaSeparatedString( string $value ): ListInterface;
 
 	/**
 	 * @return array<string>
